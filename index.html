@@ -7,16 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header id="inicio" class="hero">
-  <h1 class="titulo">Soy tres versiones del mismo eco.</h1>
-  <p class="frase" id="rotatingText">“La herida que canta”</p>
-  <span class="subtitulo" id="subtitleText">— L.I.X</span>
-  <div class="botones">
-    <a href="#musica" class="btn">🎧 Música</a>
-    <a href="#poesia" class="btn">🖋 Poesía</a>
-    <a href="#perfil" class="btn">📊 Profesional</a>
-  </div>
-</header>
+    <header id="inicio">
+        <h1>L.I.X</h1>
+        <p>Sigo roto, pero hago lo que puedo</p>
+    </header>
 
     <section id="musica">
         <h2>Música</h2>
@@ -36,7 +30,7 @@
             Hoy vi el amanecer temprano<br>
             y me dije: hoy vas a vencer.</p>
         </blockquote>
-        <p><a href="#">Leer más poemas</a></p>
+        <a href="#">Leer más poemas</a>
     </section>
 
     <section id="perfil">
@@ -50,29 +44,12 @@
         </ul>
     </section>
 
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>📧 <a href="mailto:luis@luisixcayau.com">luis@luisixcayau.com</a></p>
-        <p>🔗 <a href="https://spotify.com/lix" target="_blank">Spotify</a> | 
-               <a href="https://instagram.com/lix" target="_blank">Instagram</a></p>
-    </section>
-
     <footer>
-        <p>&copy; 2025 L.I.X – Todos los derechos reservados</p>
+        <h2>Contacto</h2>
+        <p>📧 <a href="mailto:luis@luisixcayau.com">luis@luisixcayau.com</a><br>
+        🔗 <a href="https://open.spotify.com/intl-es/artist/2j4Xk8P98HhnCm2P5lQeM0" target="_blank">Spotify</a> | 
+        <a href="https://instagram.com" target="_blank">Instagram</a></p>
+        <p>© 2025 L.I.X – Todos los derechos reservados</p>
     </footer>
-    <script>
-  const rotatingPhrases = [
-    { text: "La herida que canta", subtitle: "— L.I.X" },
-    { text: "El verso que no se borra", subtitle: "— Un Poema a la Vez" },
-    { text: "El mapa detrás de los datos", subtitle: "— Estratega de marketing" }
-  ];
-
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % rotatingPhrases.length;
-    document.getElementById('rotatingText').textContent = `“${rotatingPhrases[index].text}”`;
-    document.getElementById('subtitleText').textContent = rotatingPhrases[index].subtitle;
-  }, 5000);
-</script>
 </body>
 </html>
