@@ -45,3 +45,57 @@ blockquote {
     padding-left: 16px;
     margin-left: 0;
 }
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(-45deg, #1e3a8a, #991b5e, #1c1c1e);
+    background-size: 600% 600%;
+    animation: fondoAnimado 15s ease infinite;
+    padding: 0 20px;
+}
+
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.titulo {
+    font-size: 3em;
+    color: #ff3cac;
+    margin-bottom: 20px;
+}
+
+.frase {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 0.9em;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+.botones a.btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 24px;
+    border: 1px solid #ffffff44;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.botones a.btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
