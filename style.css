@@ -1,0 +1,47 @@
+
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+header, section, footer {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    background-color: #1e1e1e;
+}
+
+h1 {
+    font-size: 3em;
+    color: #ff3cac;
+}
+
+h2 {
+    font-size: 2em;
+    color: #00c6ff;
+    margin-top: 40px;
+}
+
+a {
+    color: #ffb6c1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+blockquote {
+    font-style: italic;
+    color: #cccccc;
+    border-left: 4px solid #ff3cac;
+    padding-left: 16px;
+    margin-left: 0;
+}
