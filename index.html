@@ -60,5 +60,19 @@
     <footer>
         <p>&copy; 2025 L.I.X – Todos los derechos reservados</p>
     </footer>
+    <script>
+  const rotatingPhrases = [
+    { text: "La herida que canta", subtitle: "— L.I.X" },
+    { text: "El verso que no se borra", subtitle: "— Un Poema a la Vez" },
+    { text: "El mapa detrás de los datos", subtitle: "— Estratega de marketing" }
+  ];
+
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % rotatingPhrases.length;
+    document.getElementById('rotatingText').textContent = `“${rotatingPhrases[index].text}”`;
+    document.getElementById('subtitleText').textContent = rotatingPhrases[index].subtitle;
+  }, 5000);
+</script>
 </body>
 </html>
