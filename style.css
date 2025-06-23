@@ -167,4 +167,41 @@ body {
   transform: scale(1.02);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
 }
+#poesia {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent),
+              linear-gradient(to bottom, rgba(255,255,255,0.05), transparent);
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
+#poesia h2 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5em;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid #ffffff80;
+  width: 0;
+  margin: 0 auto 20px auto;
+  animation: typing 3.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+#poesia p {
+  font-size: 1.2em;
+  color: #dcdcdc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Animaciones */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 14ch }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #ffffff80 }
+}
