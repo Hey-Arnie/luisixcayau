@@ -63,3 +63,46 @@ footer a {
   color: #f472b6;
   text-decoration: none;
 }
+.contenido {
+  background: rgba(0, 0, 0, 0.3);
+  margin: 80px auto;
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 700px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.contenido h2 {
+  font-size: 2rem;
+  color: #00cfff;
+  margin-bottom: 1rem;
+}
+
+.contenido p,
+.contenido li,
+.contenido blockquote {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #e5e5e5;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 4px solid #00cfff;
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 2rem;
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
