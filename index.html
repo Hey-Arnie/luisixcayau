@@ -18,7 +18,10 @@
       </div>
     </section>
 
-    <section id="musica" class="contenido">
+<!-- Sección: Música -->
+<div id="tsparticles"></div>
+
+<section id="musica" class="contenido">
   <h2>Música</h2>
   <p>Proyecto musical introspectivo que mezcla dream pop, psicodelia e indie rock.</p>
 
@@ -35,6 +38,31 @@
   </div>
 </section>
 
+<!-- Script para animación de partículas -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: true, zIndex: -1 },
+    particles: {
+      number: { value: 40 },
+      color: { value: ["#b799ff", "#98e3ff"] },
+      shape: { type: "circle" },
+      opacity: { value: 0.4 },
+      size: { value: { min: 2, max: 4 } },
+      move: {
+        enable: true,
+        speed: 0.5,
+        direction: "none",
+        random: true,
+        straight: false,
+        outModes: "out"
+      }
+    },
+    background: {
+      color: "#0b0b14"
+    }
+  });
+</script>
     <section id="poesia" class="contenido">
       <h2>Un poema a la vez</h2>
       <blockquote>
