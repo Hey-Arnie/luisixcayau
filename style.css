@@ -240,3 +240,50 @@ footer a {
     height: 100% !important;
   }
 }
+/* Ajustes responsive para evitar espacios vacíos en móviles */
+@media (max-width: 768px) {
+  #hero {
+    padding: 2rem 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  #hero p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  nav {
+    padding: 0.5rem 0;
+    backdrop-filter: blur(8px);
+  }
+
+  .contenido {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .spotify-embed-wrapper {
+    max-width: 100%;
+  }
+
+  /* Corrige scroll para navegación fija */
+  body {
+    scroll-padding-top: 60px;
+  }
+
+  header {
+    padding-top: 80px;
+  }
+}
