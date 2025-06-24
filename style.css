@@ -1,68 +1,65 @@
-body {
+/* Reset básico y tipografía */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #fff;
   background: linear-gradient(270deg, #ff3cac, #784ba0, #2b86c5);
   background-size: 600% 600%;
   animation: fondoOndas 20s ease infinite;
-  font-family: 'Inter', sans-serif;
-  color: #fff;
 }
 
-@keyframes fondoOndas {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.hero {
-  flex: 1;
+/* Hero */
+#hero {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 4rem 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-.contenido {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #00f2ff;
-  padding: 4rem 2rem;
-}
-
-header, section, footer {
-  padding: 60px 20px;
-  max-width: 800px;
-  margin: auto;
+  padding: 2rem;
   text-align: center;
 }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+/* Navegación */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
-h2 {
-  color: #00f2ff;
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+  padding: 1rem;
 }
 
-blockquote {
-  font-style: italic;
-  color: #ccc;
-}
-
-footer a {
-  color: #f472b6;
+nav a {
+  color: white;
   text-decoration: none;
+  font-weight: bold;
 }
+
+/* Contenido General */
+section {
+  padding: 4rem 2rem;
+  max-width: 100%;
+  text-align: center;
+}
+
 .contenido {
   background: rgba(0, 0, 0, 0.3);
   margin: 80px auto;
@@ -72,8 +69,8 @@ footer a {
   max-width: 700px;
   backdrop-filter: blur(12px);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  color: white;
   transition: all 0.3s ease-in-out;
+  color: #e5e5e5;
 }
 
 .contenido h2 {
@@ -88,68 +85,22 @@ footer a {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
-  color: #e5e5e5;
 }
 
 blockquote {
   font-style: italic;
   border-left: 4px solid #00cfff;
   padding-left: 1rem;
-  margin: 1rem 0;
 }
 
-footer {
-  text-align: center;
-  margin-top: 60px;
-  padding: 2rem;
-  color: white;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-.spotify-embed-wrapper {
-  border-radius: 16px;
-  padding: 5px;
-  background: linear-gradient(145deg, #ff7eb3, #65d8ff);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.spotify-embed-wrapper:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
-}
-body {
-  background-color: #0b0b14;
-  color: white;
-}
-
-#tsparticles {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
+/* Música */
 #musica {
-  text-align: center;
-  padding: 100px 20px;
   position: relative;
   z-index: 1;
 }
 
-#musica h2 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-  color: #ffffff;
-}
-
+#musica h2,
 #musica p {
-  font-size: 1.2em;
-  margin-bottom: 2em;
   color: #eaeaea;
 }
 
@@ -158,20 +109,20 @@ body {
   padding: 5px;
   background: linear-gradient(145deg, #ff7eb3, #65d8ff);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   max-width: 500px;
   margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .spotify-embed-wrapper:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
 }
+
+/* Poesía */
 #poesia {
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent),
               linear-gradient(to bottom, rgba(255,255,255,0.05), transparent);
-  padding: 100px 20px;
-  text-align: center;
   position: relative;
   z-index: 1;
 }
@@ -188,14 +139,6 @@ body {
   animation: typing 3.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
 }
 
-#poesia p {
-  font-size: 1.2em;
-  color: #dcdcdc;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Animaciones */
 @keyframes typing {
   from { width: 0 }
   to { width: 14ch }
@@ -205,14 +148,19 @@ body {
   from, to { border-color: transparent }
   50% { border-color: #ffffff80 }
 }
+
+#poesia p {
+  font-size: 1.2em;
+  color: #dcdcdc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Profesional */
 #profesional {
   position: relative;
   background: #0d0d0d;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
   overflow: hidden;
-  z-index: 1;
 }
 
 #profesional h2 {
@@ -227,23 +175,6 @@ body {
   color: #ccc;
 }
 
-.background-network {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 30px 30px;
-  animation: moveGrid 60s linear infinite;
-  z-index: -1;
-  opacity: 0.2;
-}
-
-@keyframes moveGrid {
-  0% { background-position: 0 0; }
-  100% { background-position: 1000px 1000px; }
-}
 #networkCanvas {
   position: absolute;
   top: 0;
@@ -254,60 +185,30 @@ body {
   display: block;
   pointer-events: none;
 }
-/* Tipografía fluida y reset básico */
-html {
-  font-size: 16px;
-}
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
-/* Secciones */
-section {
-  padding: 4rem 2rem;
-  max-width: 100%;
-}
-
-/* Hero específico */
-#hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* Footer */
+footer {
   text-align: center;
+  margin-top: 60px;
   padding: 2rem;
-}
-
-/* Navegación */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 999;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 1rem;
-  margin: 0;
-  gap: 2rem;
-}
-
-nav a {
   color: white;
-  text-decoration: none;
-  font-weight: bold;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
-/* Responsive */
+footer a {
+  color: #f472b6;
+  text-decoration: none;
+}
+
+/* Fondo animado */
+@keyframes fondoOndas {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
@@ -328,6 +229,10 @@ nav a {
 
   #hero {
     padding: 3rem 1rem;
+  }
+
+  .spotify-embed-wrapper {
+    width: 100%;
   }
 
   canvas {
