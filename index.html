@@ -1,176 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>L.I.X – Luis Ixcayau</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="#musica">Música</a></li>
-      <li><a href="#poesia">Poesía</a></li>
-      <li><a href="#profesional">Estrategia</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L.I.X – Luis Ixcayau</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#musica">Música</a></li>
+        <li><a href="#poesia">Poesía</a></li>
+        <li><a href="#profesional">Estrategia</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
 
-  <div class="container">
-
-    <!-- HERO -->
-    <section id="hero">
-      <h1>Soy tres versiones del mismo eco.</h1>
-      <p class="subtitulo"><em>“El verso que no se borra”</em><br><span>— Un Poema a la Vez</span></p>
-      <div class="botones">
-        <a href="#musica" class="boton"><span>🎧</span> Música</a>
-        <a href="#poesia" class="boton"><span>✒️</span> Poesía</a>
-        <a href="#profesional" class="boton"><span>📊</span> Profesional</a>
-      </div>
-    </section>
-
-    <!-- MÚSICA -->
-    <section id="musica" class="contenido">
-      <div id="tsparticles"></div>
-      <h2>Música</h2>
-      <p>Proyecto musical introspectivo que mezcla dream pop, psicodelia e indie rock.</p>
-      <div class="spotify-embed-wrapper">
-        <iframe 
-          src="https://open.spotify.com/embed/album/7zgayu4ZmGPEQh86iEpN9V?utm_source=generator" 
-          width="100%" 
-          height="152" 
-          frameborder="0" 
-          allowfullscreen 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy">
-        </iframe>
-      </div>
-    </section>
-
-    <!-- POESÍA -->
-    <section id="poesia" class="contenido">
-      <h2 class="typewriter">Un poema a la vez</h2>
-      <p>Proyecto literario íntimo donde cada palabra busca sanar, descubrir y trascender.</p>
-    </section>
-
-    <!-- PROFESIONAL -->
-    <section id="profesional" class="contenido">
-      <canvas id="networkCanvas"></canvas>
-      <h2>Estratega de Marketing y Transformación Digital</h2>
-      <p>Diseño soluciones creativas y sostenibles que conectan personas, datos y tecnología.</p>
-    </section>
-
-    <!-- CONTACTO -->
-    <footer>
-      <section id="contacto">
-        <h2>Contacto</h2>
-        <p>📧 <a href="mailto:luis@luisixcayau.com">luis@luisixcayau.com</a><br>
-          🔗 
-          <a href="https://open.spotify.com/intl-es/artist/2j4Xk8P98HhnCm2P5lQeM0" target="_blank">Spotify</a> | 
-          <a href="https://instagram.com" target="_blank">Instagram</a></p>
-        <p>© 2025 L.I.X – Todos los derechos reservados</p>
+    <div class="container">
+      <!-- HERO -->
+      <section id="hero">
+        <h1>Soy tres versiones del mismo eco.</h1>
+        <p class="subtitulo">
+          <em>“El verso que no se borra”</em><br /><span
+            >— Un Poema a la Vez</span
+          >
+        </p>
+        <div class="botones">
+          <a href="#musica" class="boton"><span>🎧</span> Música</a>
+          <a href="#poesia" class="boton"><span>✒️</span> Poesía</a>
+          <a href="#profesional" class="boton"><span>📊</span> Profesional</a>
+        </div>
       </section>
-    </footer>
 
-  </div>
+      <!-- MÚSICA -->
+      <section id="musica" class="contenido">
+        <div id="tsparticles"></div>
+        <h2>Música</h2>
+        <p>
+          Proyecto musical introspectivo que mezcla dream pop, psicodelia e
+          indie rock.
+        </p>
+        <div class="spotify-embed-wrapper">
+          <iframe
+            src="https://open.spotify.com/embed/album/7zgayu4ZmGPEQh86iEpN9V?utm_source=generator"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+      </section>
 
-  <!-- PARTICLES SCRIPT -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <script>
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: true, zIndex: -1 },
-      particles: {
-        number: { value: 40 },
-        color: { value: ["#b799ff", "#98e3ff"] },
-        shape: { type: "circle" },
-        opacity: { value: 0.4 },
-        size: { value: { min: 2, max: 4 } },
-        move: {
-          enable: true,
-          speed: 0.5,
-          direction: "none",
-          random: true,
-          straight: false,
-          outModes: "out"
+      <!-- POESÍA -->
+      <section id="poesia" class="contenido">
+        <h2 class="typewriter">Un poema a la vez</h2>
+        <p>
+          Proyecto literario íntimo donde cada palabra busca sanar, descubrir y
+          trascender.
+        </p>
+      </section>
+
+      <!-- PROFESIONAL -->
+      <section id="profesional" class="contenido">
+        <canvas id="networkCanvas"></canvas>
+        <h2>Estratega de Marketing y Transformación Digital</h2>
+        <p>
+          Diseño soluciones creativas y sostenibles que conectan personas, datos
+          y tecnología.
+        </p>
+      </section>
+
+      <!-- CONTACTO -->
+      <footer>
+        <section id="contacto">
+          <h2>Contacto</h2>
+          <p>
+            📧 <a href="mailto:luis@luisixcayau.com">luis@luisixcayau.com</a
+            ><br />
+            🔗
+            <a
+              href="https://open.spotify.com/intl-es/artist/2j4Xk8P98HhnCm2P5lQeM0"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Spotify</a
+            >
+            |
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Instagram</a
+            >
+          </p>
+          <p>© 2025 L.I.X – Todos los derechos reservados</p>
+        </section>
+      </footer>
+    </div>
+
+    <!-- PARTICLES SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script>
+      tsParticles.load("tsparticles", {
+        fullScreen: { enable: true, zIndex: -1 },
+        particles: {
+          number: { value: 40 },
+          color: { value: ["#b799ff", "#98e3ff"] },
+          shape: { type: "circle" },
+          opacity: { value: 0.4 },
+          size: { value: { min: 2, max: 4 } },
+          move: {
+            enable: true,
+            speed: 0.5,
+            direction: "none",
+            random: true,
+            straight: false,
+            outModes: "out",
+          },
+        },
+        background: {
+          color: "#0b0b14",
+        },
+      });
+    </script>
+
+    <!-- NETWORK CANVAS -->
+    <script>
+      const canvas = document.getElementById("networkCanvas");
+      const ctx = canvas.getContext("2d");
+      let width, height, particles;
+
+      function initCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height =
+          document.getElementById("profesional").offsetHeight;
+        particles = [];
+
+        for (let i = 0; i < 80; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+          });
         }
-      },
-      background: {
-        color: "#0b0b14"
       }
-    });
-  </script>
 
-  <!-- NETWORK CANVAS -->
-  <script>
-    const canvas = document.getElementById('networkCanvas');
-    const ctx = canvas.getContext('2d');
-    let width, height, particles;
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particles.length; i++) {
+          let p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
 
-    function initCanvas() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = document.getElementById('profesional').offsetHeight;
-      particles = [];
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
 
-      for (let i = 0; i < 80; i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5
-        });
-      }
-    }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 1.5, 0, 2 * Math.PI);
+          ctx.fillStyle = "#00ffff";
+          ctx.fill();
 
-    function draw() {
-      ctx.clearRect(0, 0, width, height);
-      for (let i = 0; i < particles.length; i++) {
-        let p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
+          for (let j = i + 1; j < particles.length; j++) {
+            let p2 = particles[j];
+            let dx = p.x - p2.x;
+            let dy = p.y - p2.y;
+            let dist = dx * dx + dy * dy;
 
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 1.5, 0, 2 * Math.PI);
-        ctx.fillStyle = '#00ffff';
-        ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          let p2 = particles[j];
-          let dx = p.x - p2.x;
-          let dy = p.y - p2.y;
-          let dist = dx * dx + dy * dy;
-
-          if (dist < 3000) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = 'rgba(0,255,255,0.1)';
-            ctx.stroke();
+            if (dist < 3000) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = "rgba(0,255,255,0.1)";
+              ctx.stroke();
+            }
           }
         }
+        requestAnimationFrame(draw);
       }
-      requestAnimationFrame(draw);
-    }
 
-    window.addEventListener('resize', initCanvas);
-    window.addEventListener('load', () => {
-      initCanvas();
-      draw();
-    });
-  </script>
+      window.addEventListener("resize", initCanvas);
+      window.addEventListener("load", () => {
+        initCanvas();
+        draw();
+      });
+    </script>
 
-  <!-- SMOOTH SCROLL -->
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-          behavior: "smooth"
+    <!-- SMOOTH SCROLL -->
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
         });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
