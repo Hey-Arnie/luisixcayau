@@ -12,12 +12,15 @@
   </head>
   <body>
     <nav>
-      <ul>
-        <li><a href="#musica">Música</a></li>
-        <li><a href="#poesia">Poesía</a></li>
-        <li><a href="#profesional">Estrategia</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+      <div class="menu-toggle">
+        <span class="menu-icon">☰</span>
+        <ul>
+          <li><a href="#musica">Música</a></li>
+          <li><a href="#poesia">Poesía</a></li>
+          <li><a href="#profesional">Estrategia</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
     </nav>
 
     <div class="container">
@@ -201,6 +204,15 @@
             behavior: "smooth",
           });
         });
+      });
+    </script>
+
+    <!-- MENU TOGGLE -->
+    <script>
+      const menuIcon = document.querySelector(".menu-icon");
+      const menuToggle = document.querySelector(".menu-toggle");
+      menuIcon.addEventListener("click", () => {
+        menuToggle.classList.toggle("open");
       });
     </script>
   </body>
