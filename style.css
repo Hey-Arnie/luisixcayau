@@ -80,6 +80,37 @@ nav a {
   font-weight: bold;
 }
 
+/* Menú responsive */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .menu-toggle ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .menu-toggle.open ul {
+    display: flex;
+  }
+}
+
 /* Contenido General */
 section {
   padding: 4rem 2rem;
