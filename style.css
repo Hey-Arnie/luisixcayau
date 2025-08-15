@@ -201,6 +201,23 @@ footer a {
   text-decoration: none;
 }
 
+.social-buttons {
+  margin-top: 1rem;
+}
+
+.social-buttons a {
+  margin: 0 0.5rem;
+  color: #f472b6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.invitation {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
 /* Fondo animado */
 @keyframes fondoOndas {
   0% { background-position: 0% 50%; }
