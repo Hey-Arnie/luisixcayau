@@ -1,95 +1,128 @@
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: true, zIndex: -1 },
-  particles: {
-    number: { value: 40 },
-    color: { value: ["#b799ff", "#98e3ff"] },
-    shape: { type: "circle" },
-    opacity: { value: 0.4 },
-    size: { value: { min: 2, max: 4 } },
-    move: {
-      enable: true,
-      speed: 0.5,
-      direction: "none",
-      random: true,
-      straight: false,
-      outModes: "out",
-    },
-  },
-  background: {
-    color: "#0b0b14",
-  },
-});
-
-const canvas = document.getElementById("networkCanvas");
-const ctx = canvas.getContext("2d");
-let width, height, particles;
-
-function initCanvas() {
-  width = (canvas.width = window.innerWidth);
-  height = (canvas.height = document.getElementById("profesional").offsetHeight);
-  particles = [];
-
-  for (let i = 0; i < 80; i++) {
-    particles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-    });
-  }
-}
-
-function draw() {
-  ctx.clearRect(0, 0, width, height);
-  for (let i = 0; i < particles.length; i++) {
-    let p = particles[i];
-    p.x += p.vx;
-    p.y += p.vy;
-
-    if (p.x < 0 || p.x > width) p.vx *= -1;
-    if (p.y < 0 || p.y > height) p.vy *= -1;
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, 1.5, 0, 2 * Math.PI);
-    ctx.fillStyle = "#00ffff";
-    ctx.fill();
-
-    for (let j = i + 1; j < particles.length; j++) {
-      let p2 = particles[j];
-      let dx = p.x - p2.x;
-      let dy = p.y - p2.y;
-      let dist = dx * dx + dy * dy;
-
-      if (dist < 3000) {
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.strokeStyle = "rgba(0,255,255,0.1)";
-        ctx.stroke();
-      }
+// Inicializa animación Lottie para el logo
+const pulseData = {
+  v: '5.7.4',
+  fr: 30,
+  ip: 0,
+  op: 60,
+  w: 100,
+  h: 100,
+  nm: 'pulse',
+  ddd: 0,
+  assets: [],
+  layers: [
+    {
+      ddd: 0,
+      ind: 1,
+      ty: 4,
+      nm: 'circle',
+      sr: 1,
+      ks: {
+        o: { a: 0, k: 100 },
+        r: { a: 0, k: 0 },
+        p: { a: 0, k: [50, 50, 0] },
+        a: { a: 0, k: [0, 0, 0] },
+        s: {
+          a: 1,
+          k: [
+            { t: 0, s: [0, 0, 100] },
+            { t: 30, s: [100, 100, 100] },
+            { t: 60, s: [0, 0, 100] }
+          ]
+        }
+      },
+      ao: 0,
+      shapes: [
+        { ty: 'el', p: { a: 0, k: [0, 0] }, s: { a: 0, k: [80, 80] }, nm: 'Ellipse' },
+        { ty: 'fl', c: { a: 0, k: [1, 1, 1, 1] }, o: { a: 0, k: 100 }, r: 1, nm: 'Fill' }
+      ],
+      ip: 0,
+      op: 60,
+      st: 0,
+      bm: 0
     }
-  }
-  requestAnimationFrame(draw);
-}
+  ]
+};
 
-window.addEventListener("resize", initCanvas);
-window.addEventListener("load", () => {
-  initCanvas();
-  draw();
+lottie.loadAnimation({
+  container: document.getElementById('logo'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  animationData: pulseData
 });
 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document
-      .querySelector(this.getAttribute("href"))
-      .scrollIntoView({ behavior: "smooth" });
+// Configuración de Locomotive Scroll
+const scroller = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true
+});
+
+// Integración con GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.scrollerProxy('[data-scroll-container]', {
+  scrollTop(value) {
+    return arguments.length
+      ? scroller.scrollTo(value, 0, 0)
+      : scroller.scroll.instance.scroll.y;
+  },
+  getBoundingClientRect() {
+    return {
+      top: 0,
+      left: 0,
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  }
+});
+
+scroller.on('scroll', ScrollTrigger.update);
+ScrollTrigger.addEventListener('refresh', () => scroller.update());
+ScrollTrigger.refresh();
+
+// Animación de entrada para cada escena
+ gsap.utils.toArray('.scene').forEach((scene) => {
+  gsap.from(scene, {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: {
+      trigger: scene,
+      scroller: '[data-scroll-container]',
+      start: 'top 80%'
+    }
   });
 });
 
-const menuIcon = document.querySelector(".menu-icon");
-const menuToggle = document.querySelector(".menu-toggle");
-menuIcon.addEventListener("click", () => {
-  menuToggle.classList.toggle("open");
+// Texto con efecto máquina de escribir
+const poem = 'En el silencio florecen palabras.';
+const poemEl = document.getElementById('poem');
+let poemStarted = false;
+
+function startPoem() {
+  if (poemStarted) return;
+  poemStarted = true;
+  let i = 0;
+  const interval = setInterval(() => {
+    poemEl.textContent += poem.charAt(i);
+    i++;
+    if (i >= poem.length) clearInterval(interval);
+  }, 100);
+}
+
+ScrollTrigger.create({
+  trigger: '#poesia',
+  scroller: '[data-scroll-container]',
+  start: 'top 80%',
+  onEnter: startPoem
 });
 
+// Navegación suave con Locomotive Scroll
+const links = document.querySelectorAll('nav a[data-scroll-to]');
+links.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = link.getAttribute('href');
+    scroller.scrollTo(target);
+  });
+});
