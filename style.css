@@ -1,4 +1,4 @@
-/* Reset básico y tipografía */
+/* Estilos básicos y tipografía */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,368 +6,77 @@
 }
 
 html {
-  font-size: 16px;
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  line-height: 1.6;
+  background: #0b0b14;
   color: #fff;
-  background: linear-gradient(270deg, #ff3cac, #784ba0, #2b86c5);
-  background-size: 600% 600%;
-  animation: fondoOndas 20s ease infinite;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-
-/* Hero */
-#hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  text-align: center;
-  overflow: hidden;
-}
-
-#hero img.hero-bg {
-  position: absolute;
+/* Navegación fija en la parte superior */
+.site-nav {
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10;
 }
 
-#hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.7)
-  );
-  z-index: -1;
-}
-
-/* Navegación */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
+.site-nav ul {
   list-style: none;
+  display: flex;
+  justify-content: center;
   gap: 2rem;
   padding: 1rem;
 }
 
-nav a {
-  color: white;
+.site-nav a {
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
 }
 
-/* Menú responsive */
-.menu-toggle {
+/* Secciones de pantalla completa */
+.scene {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-
-.menu-icon {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-    padding: 0.5rem 1rem;
-  }
-
-  .menu-toggle ul {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .menu-toggle.open ul {
-    display: flex;
-  }
-}
-
-/* Contenido General */
-section {
-  padding: 4rem 2rem;
-  max-width: 100%;
   text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.contenido {
-  background: rgba(0, 0, 0, 0.3);
-  margin: 80px auto;
-  padding: 2.5rem;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 700px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
-  color: #e5e5e5;
+.scene.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.contenido h2 {
-  font-size: 2rem;
-  color: #00cfff;
-  margin-bottom: 1rem;
-}
-
-.contenido p,
-.contenido li,
-.contenido blockquote {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-blockquote {
-  font-style: italic;
-  border-left: 4px solid #00cfff;
-  padding-left: 1rem;
-}
-
-/* Música */
-#musica {
-  position: relative;
-  z-index: 1;
-}
-
-#musica h2,
-#musica p {
-  color: #eaeaea;
-}
-
-.spotify-embed-wrapper {
-  border-radius: 16px;
-  padding: 5px;
-  background: linear-gradient(145deg, #ff7eb3, #65d8ff);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  max-width: 500px;
-  margin: 0 auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.spotify-embed-wrapper:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
-}
-
-/* Poesía */
-#poesia {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent),
-              linear-gradient(to bottom, rgba(255,255,255,0.05), transparent);
-  position: relative;
-  z-index: 1;
-}
-
-#poesia h2 {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 2.5em;
-  color: #fff;
+/* Estilo del poema */
+#poem {
+  font-size: 1.2rem;
+  border-right: 2px solid #fff;
+  padding-right: 0.2rem;
   white-space: nowrap;
   overflow: hidden;
-  border-right: .15em solid #ffffff80;
-  width: 0;
-  margin: 0 auto 20px auto;
-  animation: typing 3.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
 }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 14ch }
+#poem.typing {
+  animation: caret 0.7s steps(1) infinite;
 }
 
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #ffffff80 }
-}
-
-#poesia p {
-  font-size: 1.2em;
-  color: #dcdcdc;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Profesional */
-#profesional {
-  position: relative;
-  background: #0d0d0d;
-  overflow: hidden;
-}
-
-#profesional h2 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-#profesional p {
-  font-size: 1.2em;
-  max-width: 600px;
-  margin: 0 auto;
-  color: #ccc;
-}
-
-#networkCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  margin-top: 60px;
-  padding: 2rem;
-  color: white;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-footer a {
-  color: #f472b6;
-  text-decoration: none;
-}
-
-.social-buttons {
-  margin-top: 1rem;
-}
-
-.social-buttons a {
-  margin: 0 0.5rem;
-  color: #f472b6;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.invitation {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
-/* Fondo animado */
-@keyframes fondoOndas {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #hero {
-    padding: 3rem 1rem;
-  }
-
-  .spotify-embed-wrapper {
-    width: 100%;
-  }
-
-  canvas {
-    width: 100% !important;
-    height: 100% !important;
+@keyframes caret {
+  50% {
+    border-color: transparent;
   }
 }
-/* Ajustes responsive para evitar espacios vacíos en móviles */
-@media (max-width: 768px) {
-  #hero {
-    padding: 2rem 1rem;
-    height: auto;
-    min-height: 100vh;
-  }
 
-  #hero h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  #hero p {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.5rem;
-  }
-
-  nav {
-    padding: 0.5rem 0;
-    backdrop-filter: blur(8px);
-  }
-
-  .contenido {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .spotify-embed-wrapper {
-    max-width: 100%;
-  }
-
-  /* Corrige scroll para navegación fija */
-  body {
-    scroll-padding-top: 60px;
-  }
-
-  header {
-    padding-top: 80px;
+/* Ajustes responsive */
+@media (max-width: 600px) {
+  .site-nav ul {
+    gap: 1rem;
   }
 }
