@@ -1,0 +1,11 @@
+{
+  "name": "luisixcayau",
+  "version": "1.0.0",
+  "description": "Sitio minimalista con secciones animadas",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
