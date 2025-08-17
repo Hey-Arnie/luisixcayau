@@ -44,44 +44,88 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') updateSlide(currentSlide - 1);
   });
 
-  // Partículas simples
-  function initParticles(canvas, color) {
+  // Partículas personalizadas por sección
+  function initParticles(canvas, config) {
     const ctx = canvas.getContext('2d');
-    const particles = Array.from({ length: 30 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 3 + 1,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-    }));
+    const particles = [];
 
     function resize() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const count = Math.max(30, Math.floor((canvas.width * canvas.height) / 15000));
+      particles.length = 0;
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: config.type === 'network' ? Math.random() * 2 + 1 : Math.random() * 8 + 4,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          symbol: config.symbols ? config.symbols[Math.floor(Math.random() * config.symbols.length)] : null
+        });
+      }
     }
+
     resize();
     window.addEventListener('resize', resize);
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = color;
       particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
+
+        if (config.type === 'network') {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = config.color || 'rgba(0,0,0,0.3)';
+          ctx.fill();
+        } else {
+          ctx.save();
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.font = `${p.size}px sans-serif`;
+          if (config.color) ctx.fillStyle = config.color;
+          ctx.fillText(p.symbol, p.x, p.y);
+          ctx.restore();
+        }
       });
+
+      if (config.type === 'network') {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const a = particles[i];
+            const b = particles[j];
+            const dist = Math.hypot(a.x - b.x, a.y - b.y);
+            const maxDist = config.linkDistance || 100;
+            if (dist < maxDist) {
+              ctx.strokeStyle = config.linkColor || config.color || 'rgba(0,0,0,0.1)';
+              ctx.lineWidth = 0.5;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
       requestAnimationFrame(draw);
     }
+
     draw();
   }
 
   document.querySelectorAll('.particle-canvas').forEach((canvas, idx) => {
-    const colors = ['rgba(255,255,255,0.4)', 'rgba(0,0,0,0.3)', 'rgba(255,255,255,0.4)', 'rgba(0,0,0,0.3)'];
-    initParticles(canvas, colors[idx]);
+    const configs = [
+      { symbols: ['★', '✦', '✧', '✩'], color: 'rgba(255,255,255,0.4)' },
+      { symbols: ['♪', '♫', '♩', '♬'], color: 'rgba(0,0,0,0.3)' },
+      { symbols: ['a', 'β', 'ж', '文', 'λ', 'م', 'ע', 'あ', 'क', 'Ω'], color: 'rgba(255,255,255,0.4)' },
+      { type: 'network', color: 'rgba(0,0,0,0.3)', linkColor: 'rgba(0,0,0,0.1)', linkDistance: 120 }
+    ];
+    initParticles(canvas, configs[idx] || configs[0]);
   });
 
   // Texto del poema con efecto de máquina de escribir
