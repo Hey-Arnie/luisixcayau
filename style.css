@@ -65,6 +65,9 @@ body {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .slide.active {
@@ -109,11 +112,22 @@ p {
   pointer-events: none;
 }
 
-/* Fondos en tonos pastel */
-#inicio { background: #f8d5d1; }
-#musica { background: #d0e8f2; }
-#poesia { background: #e4d1f8; }
-#profesional { background: #d2f8d3; }
+/* Fondos con imágenes de Unsplash */
+#inicio {
+  background: #f8d5d1 url('https://source.unsplash.com/O-ARA7nBc3A/1600x900') center/cover no-repeat;
+}
+
+#musica {
+  background: #d0e8f2 url('https://source.unsplash.com/WI5e-s1ky0Y/1600x900') center/cover no-repeat;
+}
+
+#poesia {
+  background: #e4d1f8 url('https://source.unsplash.com/b1NEDk4WRvg/1600x900') center/cover no-repeat;
+}
+
+#profesional {
+  background: #d2f8d3 url('https://source.unsplash.com/2t7r_oGItZk/1600x900') center/cover no-repeat;
+}
 
 /* Indicador lateral */
 .slide-indicator {
