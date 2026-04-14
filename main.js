@@ -1,128 +1,92 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    
+    const panels = {
+        pro: document.getElementById('panel-pro'),
+        art: document.getElementById('panel-art')
+    };
+    const homes = {
+        pro: document.getElementById('home-pro'),
+        art: document.getElementById('home-art')
+    };
+    const expandeds = {
+        pro: document.getElementById('expanded-pro'),
+        art: document.getElementById('expanded-art')
+    };
+    const btnBacks = {
+        pro: document.getElementById('btn-back-pro'),
+        art: document.getElementById('btn-back-art')
+    };
 
-        // DOM Content Loaded garantiza que el JS no se ejecute hasta que el HTML exista.
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // Estado global simple
-            const state = { view: 'home' }; 
-            
-            // Nodos del DOM
-            const panels = {
-                pro: document.getElementById('panel-pro'),
-                art: document.getElementById('panel-art')
-            };
-            const homes = {
-                pro: document.getElementById('home-pro'),
-                art: document.getElementById('home-art')
-            };
-            const hovers = {
-                pro: document.getElementById('hover-text-pro'),
-                art: document.getElementById('hover-text-art')
-            };
-            const expandeds = {
-                pro: document.getElementById('expanded-pro'),
-                art: document.getElementById('expanded-art')
-            };
-            const btnBacks = {
-                pro: document.getElementById('btn-back-pro'),
-                art: document.getElementById('btn-back-art')
-            };
+    let currentState = 'home'; // Posibles estados: 'home', 'pro', 'art'
 
-            // Lógica de Hover
-            function resetHover() {
-                if (state.view !== 'home') return;
-                panels.pro.style.width = '50%';
-                panels.art.style.width = '50%';
-                hovers.pro.style.opacity = '0';
-                hovers.art.style.opacity = '0';
-            }
+    // GESTOR CENTRAL DE ESTADOS
+    function updateState(newState) {
+        currentState = newState;
+        
+        // Limpiar todas las clases de estado del body
+        body.classList.remove('pro-expanded', 'art-expanded', 'pro-hover', 'art-hover');
+        
+        if (newState === 'pro') {
+            body.classList.add('pro-expanded');
+            toggleVisibility('pro');
+        } else if (newState === 'art') {
+            body.classList.add('art-expanded');
+            toggleVisibility('art');
+        } else {
+            toggleVisibility('home');
+        }
+    }
 
-            panels.pro.addEventListener('mouseenter', () => {
-                if (state.view !== 'home') return;
-                panels.pro.style.width = '65%';
-                panels.art.style.width = '35%';
-                hovers.pro.style.opacity = '1';
-                hovers.art.style.opacity = '0';
+    // GESTOR DE VISIBILIDAD DE CONTENIDO
+    function toggleVisibility(target) {
+        if (target === 'home') {
+            // Ocultar contenidos expandidos
+            Object.values(expandeds).forEach(el => {
+                el.classList.add('pointer-events-none', 'opacity-0', 'translate-y-10');
+                el.classList.remove('opacity-100', 'translate-y-0');
             });
             
-            panels.pro.addEventListener('mouseleave', resetHover);
-
-            panels.art.addEventListener('mouseenter', () => {
-                if (state.view !== 'home') return;
-                panels.pro.style.width = '35%';
-                panels.art.style.width = '65%';
-                hovers.art.style.opacity = '1';
-                hovers.pro.style.opacity = '0';
+            // Mostrar portadas después de la transición
+            setTimeout(() => {
+                Object.values(homes).forEach(el => {
+                    el.classList.replace('opacity-0', 'opacity-100');
+                    el.classList.replace('scale-95', 'scale-100');
+                });
+            }, 500); 
+            
+            panels.pro.classList.add('cursor-pointer');
+            panels.art.classList.add('cursor-pointer');
+        } else {
+            // Ocultar portadas
+            Object.values(homes).forEach(el => {
+                el.classList.replace('opacity-100', 'opacity-0');
+                el.classList.replace('scale-100', 'scale-95');
             });
             
-            panels.art.addEventListener('mouseleave', resetHover);
+            panels.pro.classList.remove('cursor-pointer');
+            panels.art.classList.remove('cursor-pointer');
 
-            // Lógica de Expansión
-            function openPanel(side) {
-                if (state.view !== 'home') return;
-                state.view = side;
+            // Mostrar contenido del panel seleccionado
+            setTimeout(() => {
+                expandeds[target].classList.remove('pointer-events-none', 'opacity-0', 'translate-y-10');
+                expandeds[target].classList.add('opacity-100', 'translate-y-0');
+            }, 400);
+        }
+    }
 
-                // 1. Desvanecer contenido Home
-                Object.values(homes).forEach(home => {
-                    home.classList.replace('opacity-100', 'opacity-0');
-                    home.classList.replace('scale-100', 'scale-95');
-                });
-                
-                // 2. Bloquear interacciones hover en el fondo
-                Object.values(panels).forEach(panel => {
-                    panel.classList.remove('cursor-pointer', 'hover:bg-slate-900');
-                });
+    // EVENTOS DE HOVER (Para Desktop)
+    panels.pro.addEventListener('mouseenter', () => { if (currentState === 'home') body.classList.add('pro-hover'); });
+    panels.pro.addEventListener('mouseleave', () => { body.classList.remove('pro-hover'); });
+    
+    panels.art.addEventListener('mouseenter', () => { if (currentState === 'home') body.classList.add('art-hover'); });
+    panels.art.addEventListener('mouseleave', () => { body.classList.remove('art-hover'); });
 
-                // 3. Modificar anchos y mostrar contenido
-                if (side === 'pro') {
-                    panels.pro.style.width = '100%';
-                    panels.art.style.width = '0%';
-                    setTimeout(() => {
-                        expandeds.pro.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-10');
-                        expandeds.pro.classList.add('opacity-100', 'translate-y-0');
-                    }, 400);
-                } else {
-                    panels.pro.style.width = '0%';
-                    panels.art.style.width = '100%';
-                    setTimeout(() => {
-                        expandeds.art.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-10');
-                        expandeds.art.classList.add('opacity-100', 'translate-y-0');
-                    }, 400);
-                }
-            }
+    // EVENTOS DE CLIC PARA ABRIR
+    panels.pro.addEventListener('click', () => { if (currentState === 'home') updateState('pro'); });
+    panels.art.addEventListener('click', () => { if (currentState === 'home') updateState('art'); });
 
-            panels.pro.addEventListener('click', () => openPanel('pro'));
-            panels.art.addEventListener('click', () => openPanel('art'));
-
-            // Lógica para regresar
-            function closePanels(event) {
-                event.stopPropagation(); // Crucial: evita que el clic burbujee al panel contenedor
-                state.view = 'home';
-
-                // 1. Ocultar contenido expandido
-                Object.values(expandeds).forEach(expanded => {
-                    expanded.classList.add('pointer-events-none', 'opacity-0', 'translate-y-10');
-                    expanded.classList.remove('opacity-100', 'translate-y-0');
-                });
-
-                // 2. Restaurar anchos y clases base
-                panels.pro.style.width = '50%';
-                panels.art.style.width = '50%';
-                
-                Object.values(panels).forEach(panel => {
-                    panel.classList.add('cursor-pointer', 'hover:bg-slate-900');
-                });
-
-                // 3. Restaurar contenido Home
-                setTimeout(() => {
-                    Object.values(homes).forEach(home => {
-                        home.classList.replace('opacity-0', 'opacity-100');
-                        home.classList.replace('scale-95', 'scale-100');
-                    });
-                }, 500);
-                
-                resetHover();
-            }
-
-            btnBacks.pro.addEventListener('click', closePanels);
-            btnBacks.art.addEventListener('click', closePanels);
-        });
+    // EVENTOS DE CLIC PARA CERRAR
+    btnBacks.pro.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
+    btnBacks.art.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
+});
