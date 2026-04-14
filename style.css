@@ -1,172 +1,37 @@
-/* Estilos base y tipografía */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<link rel="stylesheet" href="style.css">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: black; 
+            color: white; 
+        }
+        
+        /* Ocultar scrollbar pero mantener funcionalidad */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        
+        /* Transiciones base separadas de la lógica de Tailwind para mantener el HTML limpio */
+        .panel { 
+            transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease; 
+        }
+        
+        .content-fade { 
+            transition: opacity 0.5s ease, transform 0.5s ease; 
+        }
+        
+        .expanded-content { 
+            transition: opacity 0.7s ease, transform 0.7s ease; 
+            transition-delay: 0.2s; 
+        }
 
-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  color: #333;
-  overflow: hidden; /* evita el scroll vertical */
-}
+        /* Utilidades para los gradientes de fondo */
+        .bg-grid-pattern {
+            background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
 
-/* Navegación superior fija */
-.site-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 1rem;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
-}
-
-.site-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.site-nav a {
-  color: #333;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-/* Contenedor del slider */
-.slider-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.slider {
-  display: flex;
-  height: 100%;
-  transition: transform 0.6s ease;
-}
-
-/* Sección individual */
-.slide {
-  position: relative;
-  flex: 0 0 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.slide.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  padding: 4rem 1rem;
-  max-width: 600px;
-}
-
-h1 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  font-size: 1.3rem;
-}
-
-.spotify-wrapper {
-  margin-top: 1rem;
-  width: 100%;
-  max-width: 400px;
-}
-
-/* Canvas para partículas */
-.particle-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-}
-
-/* Fondos con imágenes de Unsplash */
-#inicio {
-  background-color: #f8d5d1;
-  background-image: url('https://unsplash.com/photos/O-ARA7nBc3A/download?force=true&w=1600');
-}
-
-#musica {
-  background-color: #d0e8f2;
-  background-image: url('https://unsplash.com/photos/WI5e-s1ky0Y/download?force=true&w=1600');
-}
-
-#poesia {
-  background-color: #e4d1f8;
-  background-image: url('https://unsplash.com/photos/b1NEDk4WRvg/download?force=true&w=1600');
-}
-
-#profesional {
-  background-color: #d2f8d3;
-  background-image: url('https://unsplash.com/photos/2t7r_oGItZk/download?force=true&w=1600');
-}
-
-/* Indicador lateral */
-.slide-indicator {
-  position: fixed;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  color: #333;
-  animation: pulse 2s infinite;
-  z-index: 1000;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.3; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .slider {
-    transition: none;
-  }
-  .slide {
-    transition: none;
-  }
-  .slide-indicator {
-    animation: none;
-  }
-}
-
-/* Ajustes responsivos */
-@media (max-width: 600px) {
-  h1 { font-size: 3rem; }
-  h2 { font-size: 2rem; }
-  p { font-size: 1rem; }
-  .site-nav ul { gap: 1rem; }
-}
+        .bg-radial-glow {
+            background: radial-gradient(circle at center, rgba(30, 58, 138, 0.4), transparent, transparent);
+        }
+    </style>
