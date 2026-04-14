@@ -1,152 +1,129 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Slider horizontal
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slide');
-  let currentSlide = 0;
+<script>
+        // DOM Content Loaded garantiza que el JS no se ejecute hasta que el HTML exista.
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Estado global simple
+            const state = { view: 'home' }; 
+            
+            // Nodos del DOM
+            const panels = {
+                pro: document.getElementById('panel-pro'),
+                art: document.getElementById('panel-art')
+            };
+            const homes = {
+                pro: document.getElementById('home-pro'),
+                art: document.getElementById('home-art')
+            };
+            const hovers = {
+                pro: document.getElementById('hover-text-pro'),
+                art: document.getElementById('hover-text-art')
+            };
+            const expandeds = {
+                pro: document.getElementById('expanded-pro'),
+                art: document.getElementById('expanded-art')
+            };
+            const btnBacks = {
+                pro: document.getElementById('btn-back-pro'),
+                art: document.getElementById('btn-back-art')
+            };
 
-  function goToSlide(index) {
-    if (index < 0 || index >= slides.length) return;
-    currentSlide = index;
-    slider.style.transform = `translateX(-${index * 100}vw)`;
-    slides.forEach((s, i) => s.classList.toggle('active', i === index));
-  }
-
-  function updateSlide(index) {
-    goToSlide(index);
-    checkPoem();
-  }
-
-  // Navegación superior
-  const navLinks = document.querySelectorAll('.site-nav a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const idx = parseInt(link.dataset.slide, 10);
-      updateSlide(idx);
-    });
-  });
-
-  // Gestos táctiles para cambiar de slide
-  let startX = 0;
-  slider.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-  });
-
-  slider.addEventListener('touchend', e => {
-    const diff = e.changedTouches[0].clientX - startX;
-    if (diff < -50) updateSlide(currentSlide + 1);
-    if (diff > 50) updateSlide(currentSlide - 1);
-  });
-
-  // Navegación con teclas de flecha
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight') updateSlide(currentSlide + 1);
-    if (e.key === 'ArrowLeft') updateSlide(currentSlide - 1);
-  });
-
-  // Partículas personalizadas por sección
-  function initParticles(canvas, config) {
-    const ctx = canvas.getContext('2d');
-    const particles = [];
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      const count = Math.max(30, Math.floor((canvas.width * canvas.height) / 15000));
-      particles.length = 0;
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: config.type === 'network' ? Math.random() * 2 + 1 : Math.random() * 8 + 4,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          symbol: config.symbols ? config.symbols[Math.floor(Math.random() * config.symbols.length)] : null
-        });
-      }
-    }
-
-    resize();
-    window.addEventListener('resize', resize);
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-        if (config.type === 'network') {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = config.color || 'rgba(0,0,0,0.3)';
-          ctx.fill();
-        } else {
-          ctx.save();
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.font = `${p.size}px sans-serif`;
-          if (config.color) ctx.fillStyle = config.color;
-          ctx.fillText(p.symbol, p.x, p.y);
-          ctx.restore();
-        }
-      });
-
-      if (config.type === 'network') {
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const a = particles[i];
-            const b = particles[j];
-            const dist = Math.hypot(a.x - b.x, a.y - b.y);
-            const maxDist = config.linkDistance || 100;
-            if (dist < maxDist) {
-              ctx.strokeStyle = config.linkColor || config.color || 'rgba(0,0,0,0.1)';
-              ctx.lineWidth = 0.5;
-              ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(b.x, b.y);
-              ctx.stroke();
+            // Lógica de Hover
+            function resetHover() {
+                if (state.view !== 'home') return;
+                panels.pro.style.width = '50%';
+                panels.art.style.width = '50%';
+                hovers.pro.style.opacity = '0';
+                hovers.art.style.opacity = '0';
             }
-          }
-        }
-      }
 
-      requestAnimationFrame(draw);
-    }
+            panels.pro.addEventListener('mouseenter', () => {
+                if (state.view !== 'home') return;
+                panels.pro.style.width = '65%';
+                panels.art.style.width = '35%';
+                hovers.pro.style.opacity = '1';
+                hovers.art.style.opacity = '0';
+            });
+            
+            panels.pro.addEventListener('mouseleave', resetHover);
 
-    draw();
-  }
+            panels.art.addEventListener('mouseenter', () => {
+                if (state.view !== 'home') return;
+                panels.pro.style.width = '35%';
+                panels.art.style.width = '65%';
+                hovers.art.style.opacity = '1';
+                hovers.pro.style.opacity = '0';
+            });
+            
+            panels.art.addEventListener('mouseleave', resetHover);
 
-  document.querySelectorAll('.particle-canvas').forEach((canvas, idx) => {
-    const configs = [
-      { symbols: ['★', '✦', '✧', '✩'], color: 'rgba(255,255,255,0.4)' },
-      { symbols: ['♪', '♫', '♩', '♬'], color: 'rgba(0,0,0,0.3)' },
-      { symbols: ['a', 'β', 'ж', '文', 'λ', 'م', 'ע', 'あ', 'क', 'Ω'], color: 'rgba(255,255,255,0.4)' },
-      { type: 'network', color: 'rgba(0,0,0,0.3)', linkColor: 'rgba(0,0,0,0.1)', linkDistance: 120 }
-    ];
-    initParticles(canvas, configs[idx] || configs[0]);
-  });
+            // Lógica de Expansión
+            function openPanel(side) {
+                if (state.view !== 'home') return;
+                state.view = side;
 
-  // Texto del poema con efecto de máquina de escribir
-  const poemText = 'En el silencio florecen palabras.';
-  const poemEl = document.getElementById('poem');
-  let charIndex = 0;
+                // 1. Desvanecer contenido Home
+                Object.values(homes).forEach(home => {
+                    home.classList.replace('opacity-100', 'opacity-0');
+                    home.classList.replace('scale-100', 'scale-95');
+                });
+                
+                // 2. Bloquear interacciones hover en el fondo
+                Object.values(panels).forEach(panel => {
+                    panel.classList.remove('cursor-pointer', 'hover:bg-slate-900');
+                });
 
-  function typePoem() {
-    if (charIndex < poemText.length) {
-      poemEl.textContent += poemText.charAt(charIndex);
-      charIndex++;
-      setTimeout(typePoem, 100);
-    }
-  }
+                // 3. Modificar anchos y mostrar contenido
+                if (side === 'pro') {
+                    panels.pro.style.width = '100%';
+                    panels.art.style.width = '0%';
+                    setTimeout(() => {
+                        expandeds.pro.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-10');
+                        expandeds.pro.classList.add('opacity-100', 'translate-y-0');
+                    }, 400);
+                } else {
+                    panels.pro.style.width = '0%';
+                    panels.art.style.width = '100%';
+                    setTimeout(() => {
+                        expandeds.art.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-10');
+                        expandeds.art.classList.add('opacity-100', 'translate-y-0');
+                    }, 400);
+                }
+            }
 
-  function checkPoem() {
-    if (currentSlide === 2 && charIndex === 0) {
-      typePoem();
-    }
-  }
+            panels.pro.addEventListener('click', () => openPanel('pro'));
+            panels.art.addEventListener('click', () => openPanel('art'));
 
-  // Inicia en el primer slide
-  updateSlide(0);
-});
+            // Lógica para regresar
+            function closePanels(event) {
+                event.stopPropagation(); // Crucial: evita que el clic burbujee al panel contenedor
+                state.view = 'home';
+
+                // 1. Ocultar contenido expandido
+                Object.values(expandeds).forEach(expanded => {
+                    expanded.classList.add('pointer-events-none', 'opacity-0', 'translate-y-10');
+                    expanded.classList.remove('opacity-100', 'translate-y-0');
+                });
+
+                // 2. Restaurar anchos y clases base
+                panels.pro.style.width = '50%';
+                panels.art.style.width = '50%';
+                
+                Object.values(panels).forEach(panel => {
+                    panel.classList.add('cursor-pointer', 'hover:bg-slate-900');
+                });
+
+                // 3. Restaurar contenido Home
+                setTimeout(() => {
+                    Object.values(homes).forEach(home => {
+                        home.classList.replace('opacity-0', 'opacity-100');
+                        home.classList.replace('scale-95', 'scale-100');
+                    });
+                }, 500);
+                
+                resetHover();
+            }
+
+            btnBacks.pro.addEventListener('click', closePanels);
+            btnBacks.art.addEventListener('click', closePanels);
+        });
+    </script>
