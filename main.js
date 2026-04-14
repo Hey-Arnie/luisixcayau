@@ -1,4 +1,4 @@
-<script>
+
         // DOM Content Loaded garantiza que el JS no se ejecute hasta que el HTML exista.
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -126,4 +126,3 @@
             btnBacks.pro.addEventListener('click', closePanels);
             btnBacks.art.addEventListener('click', closePanels);
         });
-    </script>
