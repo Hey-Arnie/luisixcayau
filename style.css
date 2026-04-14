@@ -1,36 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
-        
-        body { 
-            margin: 0; 
-            overflow: hidden; 
-            background-color: black; 
-            color: white; 
-        }
-        
-        /* Ocultar scrollbar pero mantener funcionalidad */
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
-        
-        /* Transiciones base separadas de la lógica de Tailwind para mantener el HTML limpio */
-        .panel { 
-            transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease; 
-        }
-        
-        .content-fade { 
-            transition: opacity 0.5s ease, transform 0.5s ease; 
-        }
-        
-        .expanded-content { 
-            transition: opacity 0.7s ease, transform 0.7s ease; 
-            transition-delay: 0.2s; 
-        }
+body { 
+    margin: 0; 
+    overflow: hidden; 
+    background-color: black; 
+    color: white; 
+}
 
-        /* Utilidades para los gradientes de fondo */
-        .bg-grid-pattern {
-            background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
+::-webkit-scrollbar { width: 0px; background: transparent; }
 
-        .bg-radial-glow {
-            background: radial-gradient(circle at center, rgba(30, 58, 138, 0.4), transparent, transparent);
-        }
+/* ARQUITECTURA DE PANELES 
+  Transiciones fluidas para ancho y alto 
+*/
+.panel { 
+    transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1), 
+                height 0.7s cubic-bezier(0.25, 1, 0.5, 1), 
+                background-color 0.3s ease; 
+}
+
+/* =======================================================
+   MÓVIL PRIMERO (Top/Bottom Split)
+   ======================================================= */
+.panel { width: 100%; height: 50%; }
+
+/* Estados Expandidos en Móvil (Afectan la altura) */
+body.pro-expanded #panel-pro { height: 100%; }
+body.pro-expanded #panel-art { height: 0%; border: none; }
+
+body.art-expanded #panel-art { height: 100%; }
+body.art-expanded #panel-pro { height: 0%; border: none; }
+
+
+/* =======================================================
+   ESCRITORIO (Left/Right Split)
+   Aplica a pantallas mayores a 768px
+   ======================================================= */
+@media (min-width: 768px) {
+    .panel { width: 50%; height: 100%; }
+    
+    /* Efectos Hover (Solo en desktop) */
+    body.pro-hover #panel-pro { width: 65%; }
+    body.pro-hover #panel-art { width: 35%; }
+    
+    body.art-hover #panel-art { width: 65%; }
+    body.art-hover #panel-pro { width: 35%; }
+    
+    /* Estados Expandidos en Desktop (Afectan el ancho) */
+    body.pro-expanded #panel-pro { width: 100%; height: 100%; }
+    body.pro-expanded #panel-art { width: 0%; height: 100%; border: none; }
+    
+    body.art-expanded #panel-art { width: 100%; height: 100%; }
+    body.art-expanded #panel-pro { width: 0%; height: 100%; border: none; }
+}
+
+/* Animaciones de Contenido */
+.content-fade { 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.expanded-content { 
+    transition: opacity 0.7s ease, transform 0.7s ease; 
+    transition-delay: 0.2s; 
+}
+
+/* Texturas de fondo */
+.bg-grid-pattern {
+    background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.bg-radial-glow {
+    background: radial-gradient(circle at center, rgba(30, 58, 138, 0.4), transparent, transparent);
+}
