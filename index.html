@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Ixcayau | L.I.X</title>
     
-    <!-- Tailwind CSS vía CDN -->
+    <title>Luis Ixcayau | L.I.X - Growth & Arte</title>
+    <meta name="description" content="Growth Marketing Strategist, automatización de datos e IA. Proyecto musical introspectivo L.I.X.">
+    <meta name="keywords" content="Growth Marketing, Data Studio, Automatización, Poesía, Dream Pop, Luis Ixcayau">
+    <meta name="author" content="Luis Ixcayau">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luisixcayau.com/">
+    <meta property="og:title" content="Luis Ixcayau | L.I.X - Dualidad">
+    <meta property="og:description" content="Growth Marketing, automatización e IA. Música y poesía introspectiva.">
+    <meta property="og:image" content="https://luisixcayau.com/PORTADA_PENDIENTE.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://luisixcayau.com/">
+    <meta property="twitter:title" content="Luis Ixcayau | L.I.X">
+    <meta property="twitter:description" content="Growth Marketing, automatización e IA. Música y poesía introspectiva.">
+    <meta property="twitter:image" content="https://luisixcayau.com/PORTADA_PENDIENTE.jpg">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Configuración de Tailwind -->
     <script>
         tailwind.config = {
             theme: {
@@ -24,117 +37,121 @@
             }
         }
     </script>
-  <!-- Hoja de estilos principal -->
-  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body class="flex flex-col md:flex-row w-full h-screen font-sans">
 
-    <!-- =========================================================
-         HEMISFERIO IZQUIERDO: EL PROFESIONAL
-         Nota: Ya no hay onclicks ni onmouseenters ensuciando el HTML
-         ========================================================= -->
-   <div id="panel-pro" class="panel relative overflow-hidden bg-slate-950 border-b md:border-b-0 md:border-r border-slate-800 cursor-pointer hover:bg-slate-900 group">
-        <!-- Textura -->
+    <div id="panel-pro" class="panel relative overflow-hidden bg-slate-950 border-b md:border-b-0 md:border-r border-slate-800 cursor-pointer hover:bg-slate-900 group">
         <div class="absolute inset-0 opacity-10 bg-grid-pattern"></div>
 
-        <!-- CONTENIDO HOME -->
         <div id="home-pro" class="content-fade absolute inset-0 flex flex-col items-center justify-center opacity-100 scale-100">
-            <i class="ph ph-database text-emerald-400 text-5xl mb-6 opacity-70"></i>
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-500 uppercase">
+            <i class="ph ph-chart-polar text-emerald-400 text-4xl md:text-5xl mb-4 opacity-70"></i>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-500 uppercase">
                 Profesional
             </h1>
-            <p class="mt-4 font-mono text-sm text-slate-400 tracking-widest uppercase text-center px-4">Tecnología / Datos / Soluciones</p>
+            <p class="mt-2 md:mt-4 font-mono text-xs md:text-sm text-slate-400 tracking-widest uppercase text-center px-4">Growth / Data / Estrategia</p>
             
-            <div id="hover-text-pro" class="mt-12 flex items-center gap-2 text-emerald-400 font-mono text-sm opacity-0 transition-opacity duration-300">
+            <div class="mt-8 flex items-center gap-2 text-emerald-400 font-mono text-sm opacity-0 group-[.pro-hover]:opacity-100 transition-opacity duration-300">
                 Explorar Perfil <i class="ph ph-arrow-right"></i>
             </div>
         </div>
 
-        <!-- CONTENIDO EXPANDIDO -->
         <div id="expanded-pro" class="expanded-content absolute inset-0 overflow-y-auto opacity-0 translate-y-10 pointer-events-none">
-            <div class="max-w-4xl mx-auto px-8 py-16">
+            <div class="max-w-4xl mx-auto px-6 md:px-8 py-10 md:py-16">
                 
-                <button id="btn-back-pro" class="group flex items-center gap-2 text-slate-400 hover:text-white font-mono text-sm mb-16 transition-colors relative z-10">
-                    <i class="ph ph-x text-xl group-hover:rotate-90 transition-transform"></i> Volver al inicio
+                <button id="btn-back-pro" class="flex items-center gap-2 text-slate-400 hover:text-white font-mono text-sm mb-12 transition-colors relative z-10 hover:rotate-2">
+                    <i class="ph ph-x text-xl"></i> Volver al inicio
                 </button>
 
-                <header class="mb-20">
-                    <h2 class="text-5xl font-bold tracking-tight mb-6">Luis Ixcayau.</h2>
-                    <p class="text-xl text-slate-400 leading-relaxed max-w-2xl">
-                        Diseño soluciones creativas y sostenibles que conectan personas, datos y tecnología. Arquitectura de información, análisis de datos y desarrollo de productos.
+                <header class="mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Luis Ixcayau.</h2>
+                    <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl">
+                        Growth Marketing Strategist. Traduzco problemas de negocio complejos en ecosistemas de adquisición escalables y rentables impulsados por automatización y datos.
                     </p>
                 </header>
 
-                <section class="mb-20">
-                    <h3 class="text-sm font-mono text-emerald-400 mb-8 tracking-widest uppercase border-b border-slate-800 pb-4">Stack & Expertise</h3>
+                <section class="mb-16">
+                    <h3 class="text-sm font-mono text-emerald-400 mb-6 tracking-widest uppercase border-b border-slate-800 pb-2">Stack & Expertise</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-emerald-500/50 transition-colors">
-                            <i class="ph ph-database text-emerald-400 text-2xl mb-4 block"></i>
-                            <h4 class="font-bold mb-2">Data Analytics</h4>
-                            <p class="text-sm text-slate-400">Modelado, visualización y extracción de insights accionables.</p>
+                        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                            <i class="ph ph-trend-up text-emerald-400 text-2xl mb-4 block"></i>
+                            <h4 class="font-bold mb-2">Performance & Ads</h4>
+                            <p class="text-sm text-slate-400">Meta Ads, Google Ads, TikTok Ads, análisis y optimización de KPIs omnicanal.</p>
                         </div>
-                        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-emerald-500/50 transition-colors">
-                            <i class="ph ph-code text-emerald-400 text-2xl mb-4 block"></i>
-                            <h4 class="font-bold mb-2">Desarrollo</h4>
-                            <p class="text-sm text-slate-400">Construcción de interfaces limpias y arquitecturas escalables.</p>
+                        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                            <i class="ph ph-git-merge text-emerald-400 text-2xl mb-4 block"></i>
+                            <h4 class="font-bold mb-2">Growth & Automation</h4>
+                            <p class="text-sm text-slate-400">Manychat y Active Campaign para cualificación de leads y flujos de retención.</p>
                         </div>
-                        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-emerald-500/50 transition-colors">
-                            <i class="ph ph-cpu text-emerald-400 text-2xl mb-4 block"></i>
-                            <h4 class="font-bold mb-2">Estrategia IT</h4>
-                            <p class="text-sm text-slate-400">Alineación de objetivos de negocio con soluciones tecnológicas.</p>
+                        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-lg">
+                            <i class="ph ph-brain text-emerald-400 text-2xl mb-4 block"></i>
+                            <h4 class="font-bold mb-2">Data & Estrategia IA</h4>
+                            <p class="text-sm text-slate-400">Data Studio para visualización, ChatGPT, Gemini y Suno integrados a la estrategia operativa.</p>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h3 class="text-sm font-mono text-emerald-400 mb-8 tracking-widest uppercase border-b border-slate-800 pb-4">Proyectos Destacados</h3>
+                    <h3 class="text-sm font-mono text-emerald-400 mb-6 tracking-widest uppercase border-b border-slate-800 pb-2">Casos de Éxito</h3>
                     <div class="space-y-6">
-                        <div class="group p-8 border border-slate-800 hover:border-slate-600 rounded-lg transition-all cursor-pointer flex justify-between items-center">
-                            <div>
-                                <h4 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">Sistema de Gestión Sostenible v1.0</h4>
-                                <p class="text-slate-400">Plataforma integral para recolección y análisis de datos en tiempo real.</p>
+                        
+                        <div class="group p-6 border border-slate-800 hover:border-slate-600 rounded-lg transition-all flex flex-col gap-3">
+                            <div class="flex justify-between items-start">
+                                <h4 class="text-xl font-bold group-hover:text-emerald-400 transition-colors">Ecosistema de Automatización e IA</h4>
                             </div>
-                            <i class="ph ph-arrow-up-right text-slate-600 text-2xl group-hover:text-emerald-400 transition-colors"></i>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Implementación de flujos automatizados e IA conversacional para la cualificación y nutrición de prospectos a gran escala en el sector educativo.
+                            </p>
+                            <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 rounded bg-emerald-950/30 border border-emerald-900/50 text-emerald-400 text-xs font-mono w-fit">
+                                <i class="ph ph-trend-up"></i> +45% en inscripciones
+                            </div>
                         </div>
+
+                        <div class="group p-6 border border-slate-800 hover:border-slate-600 rounded-lg transition-all flex flex-col gap-3">
+                            <div class="flex justify-between items-start">
+                                <h4 class="text-xl font-bold group-hover:text-emerald-400 transition-colors">Estrategia Omnicanal Financiera</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Dirección de pauta (Meta, TikTok, SEM, Programmatic) para colocación de préstamos. Micro-segmentación geográfica y optimización radical de presupuesto.
+                            </p>
+                            <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 rounded bg-emerald-950/30 border border-emerald-900/50 text-emerald-400 text-xs font-mono w-fit">
+                                <i class="ph ph-chart-polar"></i> +1.9M alcance y 265k reproducciones
+                            </div>
+                        </div>
+
                     </div>
                 </section>
             </div>
         </div>
     </div>
 
-    <!-- =========================================================
-         HEMISFERIO DERECHO: EL ARTISTA
-         ========================================================= -->
-   <div id="panel-art" class="panel relative overflow-hidden bg-slate-950 cursor-pointer hover:bg-slate-900 group">
+    <div id="panel-art" class="panel relative overflow-hidden bg-slate-950 cursor-pointer hover:bg-slate-900 group">
         
-        <!-- Textura -->
         <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/30 to-slate-950"></div>
         <div class="absolute inset-0 opacity-30 blur-3xl bg-radial-glow"></div>
 
-        <!-- CONTENIDO HOME -->
         <div id="home-art" class="content-fade absolute inset-0 flex flex-col items-center justify-center opacity-100 scale-100">
-            <i class="ph ph-feather text-blue-400 text-5xl mb-6 opacity-70"></i>
+            <i class="ph ph-feather text-blue-400 text-4xl md:text-5xl mb-4 opacity-70"></i>
             <h1 class="text-5xl md:text-7xl font-serif italic tracking-wide text-slate-100">
                 L.I.X
             </h1>
-            <p class="mt-4 font-serif text-lg text-slate-400 italic text-center px-4">El verso que no se borra.</p>
+            <p class="mt-2 md:mt-4 font-serif text-base md:text-lg text-slate-400 italic text-center px-4">El verso que no se borra.</p>
             
-            <div id="hover-text-art" class="mt-12 flex items-center gap-2 text-blue-400 font-serif italic opacity-0 transition-opacity duration-300">
+            <div class="mt-8 flex items-center gap-2 text-blue-400 font-serif italic opacity-0 group-[.art-hover]:opacity-100 transition-opacity duration-300">
                 Entrar al estudio <i class="ph ph-arrow-right"></i>
             </div>
         </div>
 
-        <!-- CONTENIDO EXPANDIDO -->
         <div id="expanded-art" class="expanded-content absolute inset-0 overflow-y-auto opacity-0 translate-y-10 pointer-events-none">
-            <div class="max-w-4xl mx-auto px-8 py-16">
+            <div class="max-w-4xl mx-auto px-6 md:px-8 py-10 md:py-16">
                 
-                <button id="btn-back-art" class="group flex items-center gap-2 text-slate-400 hover:text-slate-100 font-serif italic mb-16 transition-colors relative z-10">
-                    <i class="ph ph-x text-xl group-hover:rotate-90 transition-transform"></i> Regresar al umbral
+                <button id="btn-back-art" class="flex items-center gap-2 text-slate-400 hover:text-slate-100 font-serif italic mb-12 transition-colors relative z-10 hover:rotate-2">
+                    <i class="ph ph-x text-xl"></i> Regresar al umbral
                 </button>
 
-                <header class="mb-24 text-center">
-                    <h2 class="text-6xl md:text-8xl font-serif italic mb-6 text-slate-100">L.I.X</h2>
-                    <p class="text-2xl text-slate-400 font-serif italic max-w-2xl mx-auto leading-relaxed">
+                <header class="mb-16 text-center md:text-left">
+                    <h2 class="text-5xl md:text-7xl font-serif italic mb-4 text-slate-100">L.I.X</h2>
+                    <p class="text-xl md:text-2xl text-slate-400 font-serif italic leading-relaxed">
                         Proyecto musical introspectivo que mezcla dream pop, psicodelia e indie rock con el peso de la palabra poética.
                     </p>
                 </header>
@@ -146,28 +163,30 @@
                             <h3 class="text-xl font-serif tracking-wide text-slate-200">Música</h3>
                         </div>
                         <div class="space-y-6">
-                            <div class="flex items-center gap-4 group cursor-pointer">
-                                <div class="w-16 h-16 bg-slate-800 rounded flex items-center justify-center group-hover:scale-105 transition-transform border border-slate-800 group-hover:border-blue-500/30">
-                                    <i class="ph ph-disc text-slate-500 text-2xl group-hover:text-blue-400 transition-colors"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-serif text-slate-200 group-hover:text-blue-300 transition-colors">Ecos de un Sueño</h4>
-                                    <p class="text-slate-500 text-sm">Single / 2023</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 group cursor-pointer">
-                                <div class="w-16 h-16 bg-slate-800 rounded flex items-center justify-center group-hover:scale-105 transition-transform border border-slate-800 group-hover:border-blue-500/30">
-                                    <i class="ph ph-disc text-slate-500 text-2xl group-hover:text-blue-400 transition-colors"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-serif text-slate-200 group-hover:text-blue-300 transition-colors">Ciudad de Cristal</h4>
-                                    <p class="text-slate-500 text-sm">EP / 2022</p>
-                                </div>
-                            </div>
                             
-                            <button class="mt-6 px-6 py-3 border border-slate-700 rounded-full font-serif italic text-slate-300 hover:bg-slate-800 hover:text-white hover:border-blue-500/50 transition-all w-full">
-                                Escuchar en Spotify
-                            </button>
+                            <a href="https://open.spotify.com/intl-es/track/0rBW8IFj24fmPrmWd2K29J?si=e00e9bd2eb884fd3" target="_blank" class="flex items-center gap-4 group cursor-pointer block">
+                                <div class="w-16 h-16 bg-slate-800/80 rounded flex items-center justify-center group-hover:scale-105 transition-transform border border-slate-800 group-hover:border-blue-500/50 shadow-lg">
+                                    <i class="ph ph-play-circle text-slate-400 text-3xl group-hover:text-blue-400 transition-colors"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-serif text-slate-200 group-hover:text-blue-300 transition-colors">Magenta</h4>
+                                    <p class="text-slate-500 text-sm flex items-center gap-1"><i class="ph ph-spotify-logo"></i> Spotify</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://open.spotify.com/intl-es/track/4cjFswqlEUN5NRtoaGnEpM?si=0a7c399530cb45a6" target="_blank" class="flex items-center gap-4 group cursor-pointer block">
+                                <div class="w-16 h-16 bg-slate-800/80 rounded flex items-center justify-center group-hover:scale-105 transition-transform border border-slate-800 group-hover:border-blue-500/50 shadow-lg">
+                                    <i class="ph ph-play-circle text-slate-400 text-3xl group-hover:text-blue-400 transition-colors"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-serif text-slate-200 group-hover:text-blue-300 transition-colors">Ninfa de Fuego</h4>
+                                    <p class="text-slate-500 text-sm flex items-center gap-1"><i class="ph ph-spotify-logo"></i> Spotify</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://open.spotify.com/intl-es/artist/1S0svIt3HsYt6LK9A8Aa76?si=0NB4Kgh2RO6m8GO8THutmw" target="_blank" class="mt-8 px-6 py-3 border border-slate-700 rounded-full font-serif italic text-slate-300 hover:bg-slate-800 hover:text-white hover:border-blue-500/50 transition-all w-full flex items-center justify-center gap-2">
+                                <i class="ph ph-headphones text-xl"></i> Escuchar en Spotify
+                            </a>
                         </div>
                     </section>
 
@@ -177,32 +196,33 @@
                             <h3 class="text-xl font-serif tracking-wide text-slate-200">Poesía</h3>
                         </div>
                         <div class="space-y-8">
+                            
                             <article class="group cursor-pointer p-4 -mx-4 rounded-lg hover:bg-slate-900/50 transition-colors border border-transparent hover:border-slate-800">
-                                <p class="text-slate-500 text-sm mb-2 italic">Extracto — Noviembre 2023</p>
-                                <h4 class="text-xl font-serif mb-3 text-slate-200 group-hover:text-blue-300 transition-colors">La inercia del silencio</h4>
-                                <p class="text-slate-400 font-serif italic leading-relaxed line-clamp-3">
-                                    Y si el verso que no se borra <br/>
-                                    es solo el eco de una voz que no gritamos. <br/>
-                                    Nos quedamos viendo el código caer, <br/>
-                                    mientras el alma busca un acorde...
+                                <p class="text-slate-500 text-sm mb-2 italic">Título del Poema 1</p>
+                                <p class="text-slate-300 font-serif italic leading-relaxed line-clamp-4">
+                                    "Pega aquí la mejor estrofa de tu primer poema... <br/>
+                                    Que tenga un impacto brutal... <br/>
+                                    Y deje al usuario queriendo más."
                                 </p>
                                 <span class="inline-block mt-4 text-blue-400 text-sm font-serif italic opacity-0 group-hover:opacity-100 transition-opacity">Leer completo -&gt;</span>
                             </article>
+
                             <article class="group cursor-pointer p-4 -mx-4 rounded-lg hover:bg-slate-900/50 transition-colors border border-transparent hover:border-slate-800">
-                                <p class="text-slate-500 text-sm mb-2 italic">Extracto — Mayo 2022</p>
-                                <h4 class="text-xl font-serif mb-3 text-slate-200 group-hover:text-blue-300 transition-colors">Cableado y Sangre</h4>
-                                <p class="text-slate-400 font-serif italic leading-relaxed line-clamp-3">
-                                    Conectando personas, dijeron. <br/>
-                                    Pero olvidamos conectar el pulso...
+                                <p class="text-slate-500 text-sm mb-2 italic">Título del Poema 2</p>
+                                <p class="text-slate-300 font-serif italic leading-relaxed line-clamp-4">
+                                    "Pega aquí la mejor estrofa de tu segundo poema... <br/>
+                                    Para enganchar al lector desde la portada."
                                 </p>
+                                <span class="inline-block mt-4 text-blue-400 text-sm font-serif italic opacity-0 group-hover:opacity-100 transition-opacity">Leer completo -&gt;</span>
                             </article>
+
                         </div>
                     </section>
                 </div>
             </div>
         </div>
     </div>
-  <!-- Lógica de animaciones y efectos -->
-  <script src="main.js"></script>
+
+    <script src="main.js"></script>
 </body>
 </html>
