@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Poema a la Vez | L.I.X</title>
+    <meta name="description" content="Sala de lectura de L.I.X. Antología poética y textos introspectivos.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { background-color: #050505; color: #d1d5db; }
+        .fade-in { animation: fadeIn 1.5s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Estilos específicos para la poesía */
+        .poema-texto {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.125rem; /* 18px */
+            line-height: 2;
+            white-space: pre-line; /* Respeta los saltos de línea del HTML */
+            color: #e5e7eb;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center selection:bg-blue-900 selection:text-white">
+
+    <div class="fixed inset-0 pointer-events-none opacity-20 blur-3xl" style="background: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.3), transparent 50%); z-index: -1;"></div>
+
+    <main class="w-full max-w-2xl px-6 py-16 md:py-24 fade-in z-10">
+        
+        <nav class="mb-20">
+            <a href="index.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-slate-300 font-sans text-sm transition-colors uppercase tracking-widest">
+                <i class="ph ph-arrow-left"></i> Regresar al umbral
+            </a>
+        </nav>
+
+        <header class="mb-24 text-center">
+            <h1 class="text-4xl md:text-5xl font-serif italic text-slate-100 mb-4">Un Poema a la Vez</h1>
+            <p class="text-slate-500 font-serif italic text-lg">Archivos de L.I.X</p>
+            <div class="w-12 h-px bg-slate-800 mx-auto mt-8"></div>
+        </header>
+
+        <div class="space-y-32">
+
+            <article class="relative">
+                <div class="absolute -left-8 top-0 text-slate-800 text-6xl font-serif opacity-30 select-none">I</div>
+                <h2 class="text-2xl font-serif text-slate-100 mb-8 italic">¿De qué sirve Noviembre?</h2>
+                
+                <div class="poema-texto pl-4 md:pl-0 border-l border-slate-800 md:border-none">
+                    ¿De qué sirve Noviembre si me falta la existencia?
+                    Si en cada esquina solo veo tu sombra caminando
+                    mientras se aleja en una dimensión desconocida
+                    aparente ante todos e inaudita para mí.
+
+                    Sin embargo el corazón no acepta excusas
+                    y es él quien está enfrente de esta pared
+                    cerrando los ojos y esperando la orden
+                    para el disparo que termine con la ilusión.
+                </div>
+            </article>
+
+            <article class="relative">
+                <div class="absolute -left-8 top-0 text-slate-800 text-6xl font-serif opacity-30 select-none">II</div>
+                <h2 class="text-2xl font-serif text-slate-100 mb-8 italic">El Tiempo de los Cambios</h2>
+                
+                <div class="poema-texto pl-4 md:pl-0 border-l border-slate-800 md:border-none">
+                    Ha estado recorriendo durante nueve vidas
+                    Con tanta carga y tantas dolencias
+                    Su mirada ya no es hermosa
+                    Su carisma ha desaparecido.
+
+                    Ella ha estado sufriendo durante tanto tiempo
+                    Y no soporta el tiempo de los cambios, pero
+                    Ella ha encontrado un final a su desgracia
+                    Ella halló a un hombre diferente.
+                </div>
+            </article>
+
+        </div>
+
+        <footer class="mt-32 pt-12 border-t border-slate-900 text-center">
+            <p class="text-slate-600 font-serif italic text-sm">
+                "La inercia del silencio se rompe un poema a la vez."
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
