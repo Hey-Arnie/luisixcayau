@@ -72,3 +72,48 @@ body.art-expanded #panel-pro { height: 0%; border: none; }
 .bg-radial-glow {
     background: radial-gradient(circle at center, rgba(30, 58, 138, 0.4), transparent, transparent);
 }
+/* ... mantén todo tu CSS anterior y pega esto al final ... */
+
+/* 1. TIPOGRAFÍA CINÉTICA (MARQUEE) */
+.marquee-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200%;
+    transform: translateY(-50%) rotate(-5deg); /* Ligeramente inclinado para más agresividad */
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.05; /* Muy sutil para no robar protagonismo */
+    overflow: hidden;
+    display: flex;
+}
+
+.marquee-content {
+    white-space: nowrap;
+    animation: scroll-marquee 20s linear infinite;
+    font-size: 8rem;
+    font-family: 'Anton', sans-serif;
+    color: transparent;
+    -webkit-text-stroke: 2px #34d399;
+    text-transform: uppercase;
+}
+
+@keyframes scroll-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 2. RESPIRACIÓN DE LA NEBULOSA (DREAM POP) */
+.breathe-glow {
+    animation: breathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+    0% { transform: scale(1) translate(-5%, -5%); opacity: 0.2; }
+    100% { transform: scale(1.2) translate(5%, 5%); opacity: 0.4; }
+}
+
+/* 3. MICRO-INTERACCIÓN FLECHAS DE PROYECTOS */
+.group:hover .arrow-animate {
+    transform: translate(4px, -4px);
+}
