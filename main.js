@@ -18,13 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
         art: document.getElementById('btn-back-art')
     };
 
-    let currentState = 'home'; // Posibles estados: 'home', 'pro', 'art'
+    let currentState = 'home'; 
 
     // GESTOR CENTRAL DE ESTADOS
     function updateState(newState) {
         currentState = newState;
         
-        // Limpiar todas las clases de estado del body
         body.classList.remove('pro-expanded', 'art-expanded', 'pro-hover', 'art-hover');
         
         if (newState === 'pro') {
@@ -35,6 +34,84 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleVisibility('art');
         } else {
             toggleVisibility('home');
+        }
+    }
+
+    // GESTOR DE VISIBILIDAD DE CONTENIDO
+    function toggleVisibility(target) {
+        if (target === 'home') {
+            Object.values(expandeds).forEach(el => {
+                el.classList.add('pointer-events-none', 'opacity-0');
+                el.classList.remove('opacity-100');
+            });
+            
+            setTimeout(() => {
+                Object.values(homes).forEach(el => {
+                    el.classList.replace('opacity-0', 'opacity-100');
+                    el.classList.replace('scale-95', 'scale-100');
+                });
+            }, 500); 
+            
+            panels.pro.classList.add('cursor-pointer');
+            panels.art.classList.add('cursor-pointer');
+        } else {
+            Object.values(homes).forEach(el => {
+                el.classList.replace('opacity-100', 'opacity-0');
+                el.classList.replace('scale-100', 'scale-95');
+            });
+            
+            panels.pro.classList.remove('cursor-pointer');
+            panels.art.classList.remove('cursor-pointer');
+
+            setTimeout(() => {
+                expandeds[target].classList.remove('pointer-events-none', 'opacity-0');
+                expandeds[target].classList.add('opacity-100');
+            }, 400);
+        }
+    }
+
+    // EVENTOS DE HOVER (Para Desktop)
+    panels.pro.addEventListener('mouseenter', () => { 
+        if (currentState === 'home') body.classList.add('pro-hover'); 
+        body.classList.add('cursor-pro'); 
+        body.classList.remove('cursor-art'); 
+    });
+    panels.pro.addEventListener('mouseleave', () => { 
+        body.classList.remove('pro-hover'); 
+    });
+    
+    panels.art.addEventListener('mouseenter', () => { 
+        if (currentState === 'home') body.classList.add('art-hover'); 
+        body.classList.add('cursor-art'); 
+        body.classList.remove('cursor-pro'); 
+    });
+    panels.art.addEventListener('mouseleave', () => { 
+        body.classList.remove('art-hover'); 
+    });
+
+    // EVENTOS DE CLIC PARA ABRIR Y CERRAR
+    panels.pro.addEventListener('click', () => { if (currentState === 'home') updateState('pro'); });
+    panels.art.addEventListener('click', () => { if (currentState === 'home') updateState('art'); });
+
+    btnBacks.pro.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
+    btnBacks.art.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
+
+    // LÓGICA DEL CURSOR ADAPTATIVO
+    const customCursor = document.getElementById('custom-cursor');
+    if(customCursor) {
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = e.clientX + 'px';
+            customCursor.style.top = e.clientY + 'px';
+        });
+
+        // Efecto magnético en botones y enlaces
+        const interactiveEls = document.querySelectorAll('a, button, .group');
+        interactiveEls.forEach(el => {
+            el.addEventListener('mouseenter', () => body.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'));
+        });
+    }
+});            toggleVisibility('home');
         }
     }
 
