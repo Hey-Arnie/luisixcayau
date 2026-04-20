@@ -203,66 +203,76 @@
                     </p>
                 </header>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                    <!-- SECCIÓN MÚSICA -->
-                   <section>
-                        <div class="flex items-center gap-3 mb-8 border-b border-slate-800 pb-4">
-                            <i class="ph ph-music-notes text-blue-400 text-2xl"></i>
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                    <section>
+                        <div class="flex items-center gap-3 mb-8 border-b border-slate-800/50 pb-4">
+                            <i class="ph ph-music-notes text-blue-400 text-2xl drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]"></i>
                             <h3 class="text-xl font-serif tracking-wide text-slate-200">Música</h3>
                         </div>
-                        <div class="space-y-6">
+                        <div class="space-y-8">
                             
-                            <div class="w-full transition-transform hover:scale-[1.02] duration-300 shadow-lg">
-                                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0rBW8IFj24fmPrmWd2K29J?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div class="relative group">
+                                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[16px] blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                                <div class="relative bg-slate-900/60 backdrop-blur-md p-2 rounded-[16px] border border-slate-700/50 group-hover:border-blue-500/50 transition-colors shadow-2xl">
+                                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0rBW8IFj24fmPrmWd2K29J?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                </div>
                             </div>
                             
-                            <div class="w-full transition-transform hover:scale-[1.02] duration-300 shadow-lg">
-                                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4cjFswqlEUN5NRtoaGnEpM?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div class="relative group">
+                                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[16px] blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                                <div class="relative bg-slate-900/60 backdrop-blur-md p-2 rounded-[16px] border border-slate-700/50 group-hover:border-blue-500/50 transition-colors shadow-2xl">
+                                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4cjFswqlEUN5NRtoaGnEpM?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                </div>
                             </div>
                             
-                            <a href="https://open.spotify.com/intl-es/artist/1S0svIt3HsYt6LK9A8Aa76?si=0NB4Kgh2RO6m8GO8THutmw" target="_blank" class="mt-8 px-6 py-3 border border-slate-700 rounded-full font-serif italic text-slate-300 hover:bg-slate-800 hover:text-white hover:border-blue-500/50 transition-all w-full flex items-center justify-center gap-2">
-                                <i class="ph ph-spotify-logo text-xl"></i> Ver perfil completo en Spotify
+                            <a href="https://open.spotify.com/intl-es/artist/1S0svIt3HsYt6LK9A8Aa76?si=0NB4Kgh2RO6m8GO8THutmw" target="_blank" class="mt-10 px-6 py-4 bg-slate-900/50 border border-slate-700/50 rounded-2xl font-serif italic text-slate-300 hover:bg-slate-800 hover:text-white hover:border-blue-500/60 transition-all w-full flex items-center justify-center gap-3 group shadow-lg hover:shadow-blue-900/20">
+                                <i class="ph ph-spotify-logo text-2xl group-hover:text-blue-400 transition-colors"></i> Ver perfil completo en Spotify
                             </a>
                         </div>
                     </section>
 
-                    <!-- SECCIÓN POESÍA -->
                     <section>
-                        <div class="flex items-center gap-3 mb-8 border-b border-slate-800 pb-4">
-                            <i class="ph ph-book-open-text text-blue-400 text-2xl"></i>
+                        <div class="flex items-center gap-3 mb-8 border-b border-slate-800/50 pb-4">
+                            <i class="ph ph-book-open-text text-blue-400 text-2xl drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]"></i>
                             <h3 class="text-xl font-serif tracking-wide text-slate-200">Poesía</h3>
                         </div>
-                        <div class="space-y-8">
+                        <div class="space-y-6">
                             
-                            <!-- Poema 1 -->
-                            <article class="group p-4 -mx-4 rounded-lg hover:bg-slate-900/50 transition-colors border border-transparent hover:border-slate-800">
-                                <p class="text-slate-500 text-sm mb-2 italic">Extracto</p>
-                                <h4 class="text-xl font-serif mb-3 text-slate-200 group-hover:text-blue-300 transition-colors">¿De qué sirve Noviembre?</h4>
-                                <p class="text-slate-400 font-serif italic leading-relaxed line-clamp-4">
+                            <article class="group relative p-6 bg-gradient-to-b from-slate-800/40 to-transparent rounded-2xl border border-slate-800/60 hover:border-blue-500/40 transition-all duration-500 hover:-translate-y-1 overflow-hidden shadow-lg">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-opacity group-hover:opacity-100 opacity-0 pointer-events-none"></div>
+                                
+                                <p class="text-slate-500 text-xs tracking-widest uppercase mb-3 font-sans">Extracto</p>
+                                <h4 class="text-xl font-serif mb-4 text-slate-100 group-hover:text-blue-300 transition-colors relative z-10">¿De qué sirve Noviembre?</h4>
+                                <p class="text-slate-400 font-serif italic leading-relaxed line-clamp-4 relative z-10">
                                     ¿De qué sirve Noviembre si me falta la existencia?<br/>
                                     Si en cada esquina solo veo tu sombra caminando<br/>
                                     mientras se aleja en una dimensión desconocida<br/>
                                     aparente ante todos e inaudita para mí...
                                 </p>
-                                <!-- Enlace actualizado a poemas.html -->
-                                <a href="poemas.html" class="inline-block mt-4 text-blue-400 text-sm font-serif italic opacity-50 group-hover:opacity-100 transition-opacity">Leer completo <i class="ph ph-arrow-right arrow-animate transition-transform inline-block"></i></a>
+                                <a href="poemas.html" class="inline-flex items-center gap-2 mt-6 text-blue-400 text-sm font-serif italic opacity-70 group-hover:opacity-100 transition-opacity relative z-10">
+                                    Leer completo <i class="ph ph-arrow-right arrow-animate transition-transform"></i>
+                                </a>
                             </article>
 
-                            <!-- Poema 2 -->
-                            <article class="group p-4 -mx-4 rounded-lg hover:bg-slate-900/50 transition-colors border border-transparent hover:border-slate-800">
-                                <p class="text-slate-500 text-sm mb-2 italic">Extracto</p>
-                                <h4 class="text-xl font-serif mb-3 text-slate-200 group-hover:text-blue-300 transition-colors">El Tiempo de los Cambios</h4>
-                                <p class="text-slate-400 font-serif italic leading-relaxed line-clamp-4">
+                            <article class="group relative p-6 bg-gradient-to-b from-slate-800/40 to-transparent rounded-2xl border border-slate-800/60 hover:border-blue-500/40 transition-all duration-500 hover:-translate-y-1 overflow-hidden shadow-lg">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-opacity group-hover:opacity-100 opacity-0 pointer-events-none"></div>
+                                
+                                <p class="text-slate-500 text-xs tracking-widest uppercase mb-3 font-sans">Extracto</p>
+                                <h4 class="text-xl font-serif mb-4 text-slate-100 group-hover:text-blue-300 transition-colors relative z-10">El Tiempo de los Cambios</h4>
+                                <p class="text-slate-400 font-serif italic leading-relaxed line-clamp-4 relative z-10">
                                     Ha estado recorriendo durante nueve vidas<br/>
                                     Con tanta carga y tantas dolencias<br/>
                                     Su mirada ya no es hermosa<br/>
                                     Su carisma ha desaparecido...
                                 </p>
-                                <!-- Enlace actualizado a poemas.html -->
-                                <a href="poemas.html" class="inline-block mt-4 text-blue-400 text-sm font-serif italic opacity-50 group-hover:opacity-100 transition-opacity">Leer completo <i class="ph ph-arrow-right arrow-animate transition-transform inline-block"></i></a>
+                                <a href="poemas.html" class="inline-flex items-center gap-2 mt-6 text-blue-400 text-sm font-serif italic opacity-70 group-hover:opacity-100 transition-opacity relative z-10">
+                                    Leer completo <i class="ph ph-arrow-right arrow-animate transition-transform"></i>
+                                </a>
                             </article>
 
                         </div>
+                    </section>
+                </div>
                     </section>
                 </div>
             </div>
