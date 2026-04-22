@@ -164,3 +164,41 @@ body.art-expanded #panel-pro { height: 0%; border: none; }
 @media (pointer: coarse) {
     #custom-cursor { display: none; } /* Ocultar en táctiles */
 }
+/* =======================================================
+   NUEVAS MEJORAS CLAUDE (Tipografía, Cursor y UI)
+   ======================================================= */
+
+/* FORZAR LA DESAPARICIÓN DEL CURSOR NATIVO */
+@media (pointer: fine) {
+    *, *:hover { 
+        cursor: none !important; 
+    }
+    
+    /* El custom cursor ya lo tienes en tu código, 
+       esto solo asegura que la flecha nativa muera. */
+}
+
+/* PILLS DE ESTADO (Punto parpadeante) */
+.blink-dot {
+    animation: blink 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+/* LETRAS GIGANTES DE AGUA (L / X) */
+.watermark {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+body.pro-hover .watermark-l {
+    opacity: 0.05;
+    transform: scale(1.05);
+}
+
+body.art-hover .watermark-x {
+    opacity: 0.05;
+    transform: scale(1.05);
+}
