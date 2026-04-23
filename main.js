@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // EVENTOS HOVER
+    // HOVER EVENTS
     panels.pro.addEventListener('mouseenter', () => { 
         if (currentState === 'home') body.classList.add('pro-hover'); 
         body.classList.add('cursor-pro'); 
@@ -82,19 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     panels.art.addEventListener('mouseleave', () => { body.classList.remove('art-hover'); });
 
-    // EVENTOS CLICK
+    // CLICK EVENTS
     panels.pro.addEventListener('click', () => { if (currentState === 'home') updateState('pro'); });
     panels.art.addEventListener('click', () => { if (currentState === 'home') updateState('art'); });
 
     btnBacks.pro.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
     btnBacks.art.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
 
-    // CERRAR CON LA TECLA ESCAPE
+    // ESCAPE KEY TO CLOSE
     document.addEventListener('keydown', (e) => { 
         if(e.key === 'Escape' && currentState !== 'home') updateState('home'); 
     });
 
-    // CURSOR MAGNÉTICO
+    // CUSTOM CURSOR LOGIC
     const customCursor = document.getElementById('custom-cursor');
     if(customCursor) {
         document.addEventListener('mousemove', (e) => {
