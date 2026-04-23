@@ -20,10 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentState = 'home'; 
 
-    // GESTOR CENTRAL DE ESTADOS
     function updateState(newState) {
         currentState = newState;
-        
         body.classList.remove('pro-expanded', 'art-expanded', 'pro-hover', 'art-hover');
         
         if (newState === 'pro') {
@@ -37,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // GESTOR DE VISIBILIDAD DE CONTENIDO
     function toggleVisibility(target) {
         if (target === 'home') {
             Object.values(expandeds).forEach(el => {
@@ -70,33 +67,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // EVENTOS DE HOVER (Para Desktop)
+    // EVENTOS HOVER
     panels.pro.addEventListener('mouseenter', () => { 
         if (currentState === 'home') body.classList.add('pro-hover'); 
         body.classList.add('cursor-pro'); 
         body.classList.remove('cursor-art'); 
     });
-    panels.pro.addEventListener('mouseleave', () => { 
-        body.classList.remove('pro-hover'); 
-    });
+    panels.pro.addEventListener('mouseleave', () => { body.classList.remove('pro-hover'); });
     
     panels.art.addEventListener('mouseenter', () => { 
         if (currentState === 'home') body.classList.add('art-hover'); 
         body.classList.add('cursor-art'); 
         body.classList.remove('cursor-pro'); 
     });
-    panels.art.addEventListener('mouseleave', () => { 
-        body.classList.remove('art-hover'); 
-    });
+    panels.art.addEventListener('mouseleave', () => { body.classList.remove('art-hover'); });
 
-    // EVENTOS DE CLIC PARA ABRIR Y CERRAR
+    // EVENTOS CLICK
     panels.pro.addEventListener('click', () => { if (currentState === 'home') updateState('pro'); });
     panels.art.addEventListener('click', () => { if (currentState === 'home') updateState('art'); });
 
     btnBacks.pro.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
     btnBacks.art.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
 
-    // LÓGICA DEL CURSOR ADAPTATIVO
+    // CERRAR CON LA TECLA ESCAPE
+    document.addEventListener('keydown', (e) => { 
+        if(e.key === 'Escape' && currentState !== 'home') updateState('home'); 
+    });
+
+    // CURSOR MAGNÉTICO
     const customCursor = document.getElementById('custom-cursor');
     if(customCursor) {
         document.addEventListener('mousemove', (e) => {
@@ -104,8 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             customCursor.style.top = e.clientY + 'px';
         });
 
-        // Efecto magnético en botones y enlaces
-        const interactiveEls = document.querySelectorAll('a, button, .group');
+        const interactiveEls = document.querySelectorAll('a, button, .group, iframe');
         interactiveEls.forEach(el => {
             el.addEventListener('mouseenter', () => body.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'));
