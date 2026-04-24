@@ -3,25 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Luis Ixcayau | L.I.X - Growth & Arte</title>
-    <meta name="description" content="Growth Marketing Strategist, automatización de datos e IA. Proyecto musical introspectivo L.I.X.">
-    <meta name="keywords" content="Growth Marketing, Data Studio, Automatización, Poesía, Dream Pop, Luis Ixcayau">
-    <meta name="author" content="Luis Ixcayau">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://luisixcayau.com/">
-    <meta property="og:title" content="Luis Ixcayau | L.I.X - Dualidad">
-    <meta property="og:description" content="Growth Marketing, automatización e IA. Música y poesía introspectiva.">
-    <meta property="og:image" content="https://luisixcayau.com/portada.jpg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Mono:wght@400;500&family=Inter:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-
+    <title>Luis Ixcayau | L.I.X</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -36,233 +21,100 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="style.css" />
 </head>
-<body class="flex flex-col md:flex-row w-full h-screen font-sans">
+<body class="flex flex-col md:flex-row w-full h-screen font-sans bg-black">
 
     <div id="custom-cursor"></div>
 
-    <div id="panel-pro" class="panel relative overflow-hidden bg-slate-950 border-b md:border-b-0 md:border-r border-slate-800 cursor-pointer hover:bg-slate-900 group">
+    <div id="panel-pro" class="panel relative overflow-hidden bg-slate-950 border-b md:border-b-0 md:border-r border-slate-800 cursor-pointer group">
         <div class="absolute inset-0 opacity-10 bg-grid-pattern"></div>
         
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
-            <span class="watermark watermark-l text-[50vw] font-syne font-extrabold text-emerald-400 opacity-0 leading-none select-none">L</span>
-        </div>
-        
-        <div class="marquee-container">
-            <div class="marquee-content font-syne font-extrabold">
-                DATA STRATEGY • GROWTH • AUTOMATION • DATA STRATEGY • GROWTH • AUTOMATION • 
-            </div>
-        </div>
-
-        <div id="home-pro" class="content-fade absolute inset-0 flex flex-col items-center justify-center opacity-100 scale-100 z-10">
-            <div class="absolute top-8 md:top-12 flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/60 border border-slate-700/50 backdrop-blur-md">
+        <div id="home-pro" class="content-fade absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
+            <div class="mb-4 flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700">
                 <div class="w-2 h-2 rounded-full bg-emerald-400 blink-dot"></div>
-                <span class="text-[10px] md:text-xs font-mono tracking-wider text-slate-300 uppercase">Disponible (Q3)</span>
+                <span class="text-[10px] font-mono text-slate-300 uppercase tracking-tighter">Disponible Q3</span>
             </div>
-
-            <i class="ph ph-chart-polar text-emerald-400 text-4xl md:text-5xl mb-4 opacity-70"></i>
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-syne font-extrabold tracking-tight text-slate-100 uppercase leading-none">
+            <h1 class="dynamic-title pro-dynamic font-syne font-extrabold text-slate-100 uppercase leading-none">
                 Profesional
             </h1>
-            <p class="mt-4 font-mono text-xs md:text-sm text-slate-400 tracking-widest uppercase text-center px-4">Growth / Data / Estrategia</p>
-            
-            <div class="mt-8 flex items-center gap-2 text-emerald-400 font-mono text-sm opacity-0 group-[.pro-hover]:opacity-100 transition-opacity duration-300">
-                Explorar Perfil <i class="ph ph-arrow-right arrow-animate transition-transform"></i>
-            </div>
+            <p class="mt-2 font-mono text-xs text-slate-500 uppercase tracking-widest">Growth • Data • Strategy</p>
         </div>
 
-        <div id="expanded-pro" class="expanded-content absolute inset-0 overflow-y-auto opacity-0 pointer-events-none z-20 pb-20">
-            <div class="max-w-5xl mx-auto px-6 md:px-8 pt-8">
-                
-                <div class="sticky top-6 z-50 w-full mb-12">
-                    <button id="btn-back-pro" class="flex items-center gap-2 bg-slate-900/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-emerald-900/50 text-emerald-400 hover:text-white hover:bg-emerald-900/50 transition-all shadow-xl hover:-translate-x-1 font-mono text-xs tracking-widest uppercase">
-                        <i class="ph ph-arrow-left text-lg"></i> Regresar
-                    </button>
+        <div id="expanded-pro" class="expanded-content absolute inset-0 overflow-y-auto opacity-0 pointer-events-none z-20 p-8 md:p-16">
+            <button id="btn-back-pro" class="mb-12 flex items-center gap-2 text-emerald-400 font-mono text-sm uppercase tracking-widest hover:text-white transition-colors">
+                <i class="ph ph-arrow-left"></i> Volver
+            </button>
+            
+            <header class="mb-20">
+                <h2 class="text-5xl md:text-7xl font-syne font-extrabold text-slate-100 uppercase leading-none mb-4">Luis Ixcayau</h2>
+                <h2 class="text-5xl md:text-7xl font-syne font-extrabold text-transparent uppercase leading-none" style="-webkit-text-stroke: 1px #34d399;">Growth Strategist</h2>
+                <p class="mt-8 text-lg text-slate-400 font-mono max-w-2xl border-l-2 border-emerald-400 pl-6">
+                    Construyo máquinas de adquisición escalables mediante análisis de datos e inteligencia artificial.
+                </p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-3xl group/card hover:border-emerald-500/50 transition-all">
+                    <i class="ph ph-chart-line-up text-3xl text-emerald-400 mb-4"></i>
+                    <h3 class="font-syne font-bold text-slate-100 uppercase mb-2">Performance</h3>
+                    <p class="text-sm text-slate-500 font-mono italic">Google, Meta & TikTok Ads.</p>
                 </div>
-
-                <header class="mb-16 md:mb-24 relative block z-10">
-                    <div class="mb-8">
-                        <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-syne font-extrabold uppercase leading-none text-slate-100 tracking-tight break-words">Luis Ixcayau</h2>
-                        <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-syne font-extrabold uppercase leading-none text-transparent break-words" style="-webkit-text-stroke: 1.5px #34d399;">Growth Strategist</h2>
-                    </div>
-                    
-                    <div class="bg-slate-900/60 backdrop-blur-sm border-l-4 border-emerald-400 p-6 md:p-8 rounded-r-2xl max-w-4xl">
-                        <p class="text-sm md:text-base lg:text-lg text-slate-300 leading-relaxed font-mono">
-                            No ejecuto tácticas aisladas, <span class="text-emerald-400 font-bold">construyo ecosistemas</span>. Traduzco objetivos de negocio complejos en máquinas de adquisición escalables y rentables, impulsadas por el análisis de datos duros, inteligencia artificial y automatización.
-                        </p>
-                    </div>
-                </header>
-
-                <section class="mb-20 relative block z-10">
-                    <div class="flex items-center gap-3 mb-8 border-b border-slate-800 pb-4">
-                        <i class="ph ph-layout text-emerald-400 text-2xl"></i>
-                        <h3 class="text-lg font-syne font-bold uppercase tracking-widest text-slate-200">Ecosistema & Resultados</h3>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch">
-                        
-                        <div class="md:col-span-2 group relative p-6 md:p-8 bg-slate-900/40 backdrop-blur-sm border border-slate-800/80 hover:border-emerald-500/50 rounded-3xl transition-all duration-300 hover:scale-[1.01] overflow-hidden flex flex-col justify-between gap-6 h-full shadow-lg">
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl transition-opacity opacity-0 group-hover:opacity-100 pointer-events-none z-0"></div>
-                            <div class="relative z-10">
-                                <h4 class="text-2xl md:text-3xl font-syne font-bold text-slate-100 uppercase mb-3">Omnicanal Financiera</h4>
-                                <p class="text-slate-400 font-mono text-sm leading-relaxed">Dirección de pauta (Meta, TikTok, SEM, Programmatic) para colocación de préstamos bancarios. Micro-segmentación y optimización radical de presupuesto.</p>
-                            </div>
-                            <div class="relative z-10 mt-auto inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-950/40 border border-emerald-900/50 text-emerald-400 text-xs md:text-sm font-syne font-bold uppercase w-fit">
-                                <i class="ph ph-chart-polar text-xl"></i> +1.9M alcance | 265k views
-                            </div>
-                        </div>
-
-                        <div class="md:col-span-1 group relative p-6 md:p-8 bg-slate-900/40 backdrop-blur-sm border border-slate-800/80 hover:border-emerald-500/50 rounded-3xl transition-all duration-300 hover:scale-[1.01] overflow-hidden flex flex-col justify-between gap-6 h-full shadow-lg">
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl transition-opacity opacity-0 group-hover:opacity-100 pointer-events-none z-0"></div>
-                            <div class="relative z-10">
-                                <h4 class="text-xl md:text-2xl font-syne font-bold text-slate-100 uppercase mb-3">Ecosistema IA</h4>
-                                <p class="text-slate-400 font-mono text-sm leading-relaxed">Implementación de IA conversacional y automatización para cualificación a gran escala en sector educación.</p>
-                            </div>
-                            <div class="relative z-10 mt-auto inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-950/40 border border-emerald-900/50 text-emerald-400 text-xs md:text-sm font-syne font-bold uppercase w-fit">
-                                <i class="ph ph-trend-up text-lg"></i> +45% inscripciones
-                            </div>
-                        </div>
-
-                        <div class="md:col-span-1 group relative p-6 bg-slate-900/20 border border-slate-800/50 rounded-3xl hover:bg-slate-800/40 hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 h-full">
-                            <div>
-                                <i class="ph ph-target text-emerald-400 text-3xl mb-3 block"></i>
-                                <h5 class="font-syne font-bold text-slate-200 uppercase mb-2">Performance</h5>
-                            </div>
-                            <p class="font-mono text-xs text-slate-500 mt-auto">Meta Ads, Google Ads, TikTok Ads & Analítica.</p>
-                        </div>
-
-                        <div class="md:col-span-1 group relative p-6 bg-slate-900/20 border border-slate-800/50 rounded-3xl hover:bg-slate-800/40 hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 h-full">
-                            <div>
-                                <i class="ph ph-git-merge text-emerald-400 text-3xl mb-3 block"></i>
-                                <h5 class="font-syne font-bold text-slate-200 uppercase mb-2">Automation</h5>
-                            </div>
-                            <p class="font-mono text-xs text-slate-500 mt-auto">Manychat, Active Campaign, Flujos de Retención.</p>
-                        </div>
-
-                        <div class="md:col-span-1 group relative p-6 bg-slate-900/20 border border-slate-800/50 rounded-3xl hover:bg-slate-800/40 hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 h-full">
-                            <div>
-                                <i class="ph ph-brain text-emerald-400 text-3xl mb-3 block"></i>
-                                <h5 class="font-syne font-bold text-slate-200 uppercase mb-2">Data & AI</h5>
-                            </div>
-                            <p class="font-mono text-xs text-slate-500 mt-auto">Data Studio, ChatGPT, Gemini operativamente integrados.</p>
-                        </div>
-                    </div>
-                </section>
+                <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-3xl group/card hover:border-emerald-500/50 transition-all">
+                    <i class="ph ph-robot text-3xl text-emerald-400 mb-4"></i>
+                    <h3 class="font-syne font-bold text-slate-100 uppercase mb-2">Automation</h3>
+                    <p class="text-sm text-slate-500 font-mono italic">Manychat & CRM Logic.</p>
+                </div>
+                <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-3xl group/card hover:border-emerald-500/50 transition-all">
+                    <i class="ph ph-database text-3xl text-emerald-400 mb-4"></i>
+                    <h3 class="font-syne font-bold text-slate-100 uppercase mb-2">Analytics</h3>
+                    <p class="text-sm text-slate-500 font-mono italic">GA4 & Looker Studio.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="panel-art" class="panel relative overflow-hidden bg-slate-950 cursor-pointer hover:bg-slate-900 group">
+    <div id="panel-art" class="panel relative overflow-hidden bg-slate-950 border-slate-800 cursor-pointer group">
+        <div class="absolute inset-0 bg-radial-glow opacity-30"></div>
         
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/30 to-slate-950"></div>
-        <div class="absolute inset-0 blur-3xl bg-radial-glow breathe-glow"></div>
-
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
-            <span class="watermark watermark-x text-[50vw] font-cormorant text-blue-400 opacity-0 leading-none select-none italic">X</span>
-        </div>
-
-        <div id="home-art" class="content-fade absolute inset-0 flex flex-col items-center justify-center opacity-100 scale-100 z-10">
-            <div class="absolute top-8 md:top-12 flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/60 border border-slate-700/50 backdrop-blur-md">
+        <div id="home-art" class="content-fade absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
+            <div class="mb-4 flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700">
                 <div class="w-2 h-2 rounded-full bg-blue-400 blink-dot"></div>
-                <span class="text-[10px] md:text-xs font-mono tracking-wider text-slate-300 uppercase">Música en Spotify</span>
+                <span class="text-[10px] font-mono text-slate-300 uppercase tracking-tighter">New track in Spotify</span>
             </div>
-
-            <i class="ph ph-feather text-blue-400 text-4xl md:text-5xl mb-4 opacity-70"></i>
-            <h1 class="text-6xl md:text-7xl lg:text-8xl font-cormorant italic tracking-wide text-slate-100">
+            <h1 class="dynamic-title art-dynamic font-cormorant italic text-slate-100 leading-none">
                 L.I.X
             </h1>
-            <p class="mt-2 font-cormorant text-lg md:text-xl text-slate-400 italic text-center px-4">El verso que no se borra.</p>
-            
-            <div class="mt-8 flex items-center gap-2 text-blue-400 font-cormorant text-lg italic opacity-0 group-[.art-hover]:opacity-100 transition-opacity duration-300">
-                Entrar al estudio <i class="ph ph-arrow-right arrow-animate transition-transform"></i>
-            </div>
+            <p class="mt-2 font-cormorant italic text-lg text-slate-500">El verso que no se borra.</p>
         </div>
 
-        <div id="expanded-art" class="expanded-content absolute inset-0 overflow-y-auto opacity-0 pointer-events-none z-20 pb-20">
-            <div class="max-w-5xl mx-auto px-6 md:px-8 pt-8">
-                
-                <div class="sticky top-6 z-50 w-full mb-12 flex justify-end">
-                    <button id="btn-back-art" class="flex items-center gap-2 bg-slate-900/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-blue-900/50 text-blue-400 hover:text-white hover:bg-blue-900/50 transition-all shadow-xl hover:translate-x-1 font-mono text-xs tracking-widest uppercase">
-                        Cerrar <i class="ph ph-arrow-right text-lg"></i>
-                    </button>
-                </div>
+        <div id="expanded-art" class="expanded-content absolute inset-0 overflow-y-auto opacity-0 pointer-events-none z-20 p-8 md:p-16">
+            <div class="flex justify-end mb-12">
+                <button id="btn-back-art" class="flex items-center gap-2 text-blue-400 font-mono text-sm uppercase tracking-widest hover:text-white transition-colors">
+                    Cerrar <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+            
+            <header class="mb-16">
+                <h2 class="text-6xl md:text-8xl font-cormorant italic text-slate-100 mb-4">L.I.X</h2>
+                <p class="text-2xl text-slate-400 font-cormorant italic max-w-xl">
+                    Dream pop y poesía introspectiva desde el corazón de Guatemala.
+                </p>
+            </header>
 
-                <header class="mb-16 md:mb-24 text-center md:text-left relative z-10">
-                    <h2 class="text-5xl md:text-6xl lg:text-7xl font-cormorant italic mb-4 text-slate-100">L.I.X</h2>
-                    <p class="text-xl md:text-2xl text-slate-400 font-cormorant italic leading-relaxed max-w-2xl">
-                        Proyecto musical introspectivo que mezcla dream pop, psicodelia e indie rock con el peso de la palabra poética.
-                    </p>
-                </header>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start relative z-10">
-                    <section>
-                        <div class="flex items-center gap-3 mb-8 border-b border-slate-800/50 pb-4">
-                            <i class="ph ph-music-notes text-blue-400 text-2xl drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]"></i>
-                            <h3 class="text-2xl font-cormorant tracking-wide text-slate-200 italic">Música</h3>
-                        </div>
-                        <div class="space-y-8">
-                            
-                            <div class="relative group">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[16px] blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                                <div class="relative bg-slate-900/60 backdrop-blur-md p-2 rounded-[16px] border border-slate-700/50 group-hover:border-blue-500/50 transition-colors shadow-2xl">
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/65fWz8O5y5fC37eP9s0q2W?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                                </div>
-                            </div>
-                            
-                            <div class="relative group">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[16px] blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                                <div class="relative bg-slate-900/60 backdrop-blur-md p-2 rounded-[16px] border border-slate-700/50 group-hover:border-blue-500/50 transition-colors shadow-2xl">
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3T6o0E3E0m2lC2Qy8P6q7b?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                                </div>
-                            </div>
-                            
-                            <a href="https://open.spotify.com/intl-es/artist/1S0svIt3HsYt6LK9A8Aa76?si=0NB4Kgh2RO6m8GO8THutmw" target="_blank" class="mt-10 px-6 py-4 bg-slate-900/50 border border-slate-700/50 rounded-2xl font-cormorant italic text-xl text-slate-300 hover:bg-slate-800 hover:text-white hover:border-blue-500/60 transition-all w-full flex items-center justify-center gap-3 group shadow-lg">
-                                <i class="ph ph-spotify-logo text-2xl group-hover:text-blue-400 transition-colors"></i> Ver perfil completo
-                            </a>
-                        </div>
-                    </section>
-
-                    <section>
-                        <div class="flex items-center gap-3 mb-8 border-b border-slate-800/50 pb-4">
-                            <i class="ph ph-book-open-text text-blue-400 text-2xl drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]"></i>
-                            <h3 class="text-2xl font-cormorant tracking-wide text-slate-200 italic">Poesía</h3>
-                        </div>
-                        <div class="space-y-6">
-                            
-                            <article class="group relative p-6 bg-gradient-to-b from-slate-800/40 to-transparent rounded-3xl border border-slate-800/60 hover:border-blue-500/40 transition-all duration-500 hover:-translate-y-1 overflow-hidden shadow-lg h-full flex flex-col">
-                                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-opacity group-hover:opacity-100 opacity-0 pointer-events-none"></div>
-                                <p class="text-slate-500 text-xs tracking-widest uppercase mb-3 font-mono">Extracto</p>
-                                <h4 class="text-2xl font-cormorant mb-4 text-slate-100 group-hover:text-blue-300 transition-colors relative z-10 italic">¿De qué sirve Noviembre?</h4>
-                                <p class="text-slate-400 font-cormorant text-lg italic leading-relaxed line-clamp-4 relative z-10 flex-grow">
-                                    ¿De qué sirve Noviembre si me falta la existencia?<br/>
-                                    Si en cada esquina solo veo tu sombra caminando<br/>
-                                    mientras se aleja en una dimensión desconocida<br/>
-                                    aparente ante todos e inaudita para mí...
-                                </p>
-                                <a href="poemas.html" class="inline-flex items-center gap-2 mt-6 text-blue-400 text-lg font-cormorant italic opacity-70 group-hover:opacity-100 transition-opacity relative z-10">
-                                    Leer completo <i class="ph ph-arrow-right arrow-animate transition-transform"></i>
-                                </a>
-                            </article>
-
-                            <article class="group relative p-6 bg-gradient-to-b from-slate-800/40 to-transparent rounded-3xl border border-slate-800/60 hover:border-blue-500/40 transition-all duration-500 hover:-translate-y-1 overflow-hidden shadow-lg h-full flex flex-col">
-                                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-opacity group-hover:opacity-100 opacity-0 pointer-events-none"></div>
-                                <p class="text-slate-500 text-xs tracking-widest uppercase mb-3 font-mono">Extracto</p>
-                                <h4 class="text-2xl font-cormorant mb-4 text-slate-100 group-hover:text-blue-300 transition-colors relative z-10 italic">El Tiempo de los Cambios</h4>
-                                <p class="text-slate-400 font-cormorant text-lg italic leading-relaxed line-clamp-4 relative z-10 flex-grow">
-                                    Ha estado recorriendo durante nueve vidas<br/>
-                                    Con tanta carga y tantas dolencias<br/>
-                                    Su mirada ya no es hermosa<br/>
-                                    Su carisma ha desaparecido...
-                                </p>
-                                <a href="poemas.html" class="inline-flex items-center gap-2 mt-6 text-blue-400 text-lg font-cormorant italic opacity-70 group-hover:opacity-100 transition-opacity relative z-10">
-                                    Leer completo <i class="ph ph-arrow-right arrow-animate transition-transform"></i>
-                                </a>
-                            </article>
-
-                        </div>
-                    </section>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <section>
+                    <h3 class="text-xl font-cormorant italic text-blue-400 border-b border-slate-800 pb-4 mb-8">Estudio</h3>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/123?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </section>
+                <section>
+                    <h3 class="text-xl font-cormorant italic text-blue-400 border-b border-slate-800 pb-4 mb-8">Poesía</h3>
+                    <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800">
+                        <p class="text-xl text-slate-300 font-cormorant italic leading-relaxed">
+                            "¿De qué sirve Noviembre si me falta la existencia?..."
+                        </p>
+                        <a href="poemas.html" class="inline-block mt-6 text-blue-400 font-cormorant italic hover:text-white transition-all">Leer más →</a>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
