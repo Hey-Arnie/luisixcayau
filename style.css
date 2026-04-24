@@ -16,160 +16,91 @@ body {
                 background-color 0.3s ease; 
 }
 
-/* MÓVIL PRIMERO */
+/* MOBILE FIRST */
 .panel { width: 100%; height: 50%; }
 
 body.pro-expanded #panel-pro { height: 100%; }
 body.pro-expanded #panel-art { height: 0%; border: none; }
-
 body.art-expanded #panel-art { height: 100%; }
 body.art-expanded #panel-pro { height: 0%; border: none; }
 
-/* ESCRITORIO */
+/* DESKTOP SPLIT */
 @media (min-width: 768px) {
     .panel { width: 50%; height: 100%; }
-    
     body.pro-hover #panel-pro { width: 65%; }
     body.pro-hover #panel-art { width: 35%; }
-    
     body.art-hover #panel-art { width: 65%; }
     body.art-hover #panel-pro { width: 35%; }
-    
-    body.pro-expanded #panel-pro { width: 100%; height: 100%; }
-    body.pro-expanded #panel-art { width: 0%; height: 100%; border: none; }
-    
-    body.art-expanded #panel-art { width: 100%; height: 100%; }
-    body.art-expanded #panel-pro { width: 0%; height: 100%; border: none; }
+    body.pro-expanded #panel-pro { width: 100%; }
+    body.pro-expanded #panel-art { width: 0%; border: none; }
+    body.art-expanded #panel-art { width: 100%; }
+    body.art-expanded #panel-pro { width: 0%; border: none; }
 }
 
-/* Animaciones de Contenido */
-.content-fade { 
-    transition: opacity 0.5s ease, transform 0.5s ease; 
-}
+/* ANIMACIONES DE ENTRADA */
+.content-fade { transition: opacity 0.5s ease, transform 0.5s ease; }
+.expanded-content { transition: opacity 0.7s ease, transform 0.7s ease; transition-delay: 0.2s; }
 
-.expanded-content { 
-    transition: opacity 0.7s ease, transform 0.7s ease; 
-    transition-delay: 0.2s; 
-}
-
-/* Texturas de fondo */
+/* DECORACIÓN */
 .bg-grid-pattern {
     background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px);
     background-size: 40px 40px;
 }
-.bg-radial-glow {
-    background: radial-gradient(circle at center, rgba(30, 58, 138, 0.4), transparent, transparent);
-}
+.bg-radial-glow { background: radial-gradient(circle at center, rgba(30, 58, 138, 0.4), transparent, transparent); }
 
-/* TIPOGRAFÍA CINÉTICA (MARQUEE) */
+/* MARQUEE */
 .marquee-container {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 200%;
+    position: absolute; top: 50%; left: 0; width: 200%;
     transform: translateY(-50%) rotate(-5deg);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.05;
-    overflow: hidden;
-    display: flex;
+    pointer-events: none; z-index: 0; opacity: 0.05; overflow: hidden; display: flex;
 }
 .marquee-content {
-    white-space: nowrap;
-    animation: scroll-marquee 20s linear infinite;
-    font-size: 8rem;
-    color: transparent;
-    -webkit-text-stroke: 2px #34d399;
-    text-transform: uppercase;
+    white-space: nowrap; animation: scroll-marquee 20s linear infinite;
+    font-size: 8rem; color: transparent; -webkit-text-stroke: 2px #34d399; text-transform: uppercase;
 }
-@keyframes scroll-marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
+@keyframes scroll-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* RESPIRACIÓN DE LA NEBULOSA */
-.breathe-glow { animation: breathe 8s ease-in-out infinite alternate; }
-@keyframes breathe {
-    0% { transform: scale(1) translate(-5%, -5%); opacity: 0.2; }
-    100% { transform: scale(1.2) translate(5%, 5%); opacity: 0.4; }
-}
-
-/* MICRO-INTERACCIÓN FLECHAS */
-.group:hover .arrow-animate { transform: translate(4px, -4px); }
-
-/* ANIMACIÓN ESCALONADA (Staggered Reveal) */
-.expanded-content > div > * {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.expanded-content.opacity-100 > div > * {
-    opacity: 1;
-    transform: translateY(0);
-}
-.expanded-content > div > *:nth-child(1) { transition-delay: 0.3s; }
-.expanded-content > div > *:nth-child(2) { transition-delay: 0.4s; }
-.expanded-content > div > *:nth-child(3) { transition-delay: 0.5s; }
-.expanded-content > div > *:nth-child(4) { transition-delay: 0.6s; }
-
-/* CURSOR ADAPTATIVO FORZANDO OCULTAR FLECHA */
+/* CURSOR */
 @media (pointer: fine) {
     *, *:hover { cursor: none !important; }
-    
     #custom-cursor {
-        position: fixed;
-        top: 0; left: 0;
-        width: 16px; height: 16px;
-        background-color: white;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
+        position: fixed; top: 0; left: 0; width: 16px; height: 16px;
+        background-color: white; border-radius: 50%; pointer-events: none; z-index: 9999;
         transform: translate(-50%, -50%);
-        transition: width 0.3s ease, height 0.3s ease, background-color 0.4s ease, border-radius 0.4s ease, mix-blend-mode 0.3s ease;
+        transition: width 0.3s ease, height 0.3s ease, background-color 0.4s ease, border-radius 0.4s ease;
         mix-blend-mode: difference;
     }
-
-    body.cursor-pro #custom-cursor {
-        background-color: #34d399; 
-        border-radius: 2px;
-        mix-blend-mode: normal;
-        box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
-    }
-
-    body.cursor-art #custom-cursor {
-        background-color: #60a5fa; 
-        border-radius: 50%;
-        mix-blend-mode: normal;
-        box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
-    }
-
-    body.cursor-hover #custom-cursor {
-        width: 45px; height: 45px;
-        opacity: 0.4;
-    }
-}
-@media (pointer: coarse) {
-    #custom-cursor { display: none; }
+    body.cursor-pro #custom-cursor { background-color: #34d399; border-radius: 2px; mix-blend-mode: normal; }
+    body.cursor-art #custom-cursor { background-color: #60a5fa; border-radius: 50%; mix-blend-mode: normal; }
+    body.cursor-hover #custom-cursor { width: 45px; height: 45px; opacity: 0.4; }
 }
 
-/* PILLS DE ESTADO */
-.blink-dot {
-    animation: blink 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
+/* =======================================================
+   NUEVO: TIPOGRAFÍA DINÁMICA (SOLUCIÓN AL CORTE)
+   ======================================================= */
+.dynamic-title {
+    white-space: nowrap;
+    transition: font-size 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    display: block;
 }
 
-/* LETRAS GIGANTES DE AGUA (L / X) */
-.watermark {
-    transition: opacity 0.8s ease, transform 0.8s ease;
+@media (min-width: 768px) {
+    /* Lado Profesional */
+    .pro-dynamic { font-size: 4.2vw; } /* Estado 50% */
+    body.pro-hover .pro-dynamic { font-size: 5.8vw; } /* Estado 65% */
+    body.art-hover .pro-dynamic { font-size: 2.6vw; } /* Estado 35% (Se encoge) */
+
+    /* Lado L.I.X */
+    .art-dynamic { font-size: 6vw; } /* Estado 50% */
+    body.art-hover .art-dynamic { font-size: 8vw; } /* Estado 65% */
+    body.pro-hover .art-dynamic { font-size: 3.5vw; } /* Estado 35% (Se encoge) */
 }
-body.pro-hover .watermark-l {
-    opacity: 0.05;
-    transform: scale(1.05);
+
+/* Móvil */
+@media (max-width: 767px) {
+    .pro-dynamic { font-size: 12vw; }
+    .art-dynamic { font-size: 18vw; }
 }
-body.art-hover .watermark-x {
-    opacity: 0.05;
-    transform: scale(1.05);
-}
+
+.blink-dot { animation: blink 2s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
