@@ -315,3 +315,107 @@ body {
   .bc.s2, .bc.s3 { grid-column:span 1; }
   .lix-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
+/* ═══════════════════════════════════════
+   MÓDULO DE CONTACTO (CALL TO ACTION)
+═══════════════════════════════════════ */
+.contact-section {
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.contact-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.contact-title.lix-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+}
+
+.contact-desc {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-mid);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.c-btn {
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.6rem;
+  font-family: 'DM Mono', monospace; 
+  font-size: 0.75rem; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+  letter-spacing: 0.08em;
+  padding: 1rem 2rem; 
+  border-radius: 100px; 
+  text-decoration: none; 
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (pointer: fine) { .c-btn { cursor: none; } }
+
+/* Botones Growth (Esmeralda) */
+.pro-btn { 
+  background: var(--pro); 
+  color: #000; 
+  border: 1px solid var(--pro); 
+}
+.pro-btn:hover { 
+  background: transparent; 
+  color: var(--pro); 
+  box-shadow: 0 0 25px rgba(52,211,153,0.25); 
+  transform: translateY(-3px);
+}
+
+.pro-btn-outline { 
+  background: transparent; 
+  color: var(--text); 
+  border: 1px solid var(--border-md); 
+}
+.pro-btn-outline:hover { 
+  border-color: var(--pro); 
+  color: var(--pro); 
+  transform: translateY(-3px);
+}
+
+/* Botones L.I.X (Azul) */
+.lix-btn { 
+  background: var(--lix); 
+  color: #000; 
+  border: 1px solid var(--lix); 
+}
+.lix-btn:hover { 
+  background: transparent; 
+  color: var(--lix); 
+  box-shadow: 0 0 25px rgba(96,165,250,0.25); 
+  transform: translateY(-3px);
+}
+
+.lix-btn-outline { 
+  background: transparent; 
+  color: var(--text); 
+  border: 1px solid var(--border-md); 
+}
+.lix-btn-outline:hover { 
+  border-color: var(--lix); 
+  color: var(--lix); 
+  transform: translateY(-3px);
+}
