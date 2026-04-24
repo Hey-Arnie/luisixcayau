@@ -1,124 +1,180 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Ixcayau | L.I.X</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        syne: ['Syne', 'sans-serif'],
-                        cormorant: ['Cormorant Garamond', 'serif'],
-                        mono: ['DM Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luis Ixcayau | L.I.X</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="flex flex-col md:flex-row w-full h-screen font-sans bg-black">
+<body>
 
-    <div id="custom-cursor"></div>
+<div id="cur"></div>
+<div id="cur-r"></div>
 
-    <div id="panel-pro" class="panel relative overflow-hidden bg-slate-950 border-b md:border-b-0 md:border-r border-slate-800 cursor-pointer group">
-        <div class="absolute inset-0 opacity-10 bg-grid-pattern"></div>
-        
-        <div id="home-pro" class="content-fade absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
-            <div class="mb-4 flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700">
-                <div class="w-2 h-2 rounded-full bg-emerald-400 blink-dot"></div>
-                <span class="text-[10px] font-mono text-slate-300 uppercase tracking-tighter">Disponible Q3</span>
-            </div>
-            <h1 class="dynamic-title pro-dynamic font-syne font-extrabold text-slate-100 uppercase leading-none">
-                Profesional
-            </h1>
-            <p class="mt-2 font-mono text-xs text-slate-500 uppercase tracking-widest">Growth • Data • Strategy</p>
-        </div>
+<div id="split">
+  <div id="divider"><div id="divider-dot"></div></div>
 
-        <div id="expanded-pro" class="expanded-content absolute inset-0 overflow-y-auto opacity-0 pointer-events-none z-20 p-8 md:p-16">
-            <button id="btn-back-pro" class="mb-12 flex items-center gap-2 text-emerald-400 font-mono text-sm uppercase tracking-widest hover:text-white transition-colors">
-                <i class="ph ph-arrow-left"></i> Volver
-            </button>
-            
-            <header class="mb-20">
-                <h2 class="text-5xl md:text-7xl font-syne font-extrabold text-slate-100 uppercase leading-none mb-4">Luis Ixcayau</h2>
-                <h2 class="text-5xl md:text-7xl font-syne font-extrabold text-transparent uppercase leading-none" style="-webkit-text-stroke: 1px #34d399;">Growth Strategist</h2>
-                <p class="mt-8 text-lg text-slate-400 font-mono max-w-2xl border-l-2 border-emerald-400 pl-6">
-                    Construyo máquinas de adquisición escalables mediante análisis de datos e inteligencia artificial.
-                </p>
-            </header>
+  <div class="half" id="half-pro">
+    <div class="orb"></div>
+    <div class="bg-letter">L</div>
+    <div class="status-pill"><span class="sdot green"></span>Disponible para proyectos</div>
+    <div class="half-tag">Profesional</div>
+    
+    <h1 class="half-title">Growth /<br>Data /<br>Estrategia</h1>
+    <p class="half-desc">Ecosistemas de adquisición escalables. No tácticas aisladas.</p>
+    
+    <button class="enter-btn" id="btn-pro" onclick="openPanel('pro')">
+      <span class="eb-bg"></span>
+      <span class="eb-text">Explorar Perfil</span>
+      <span class="eb-arrow">→</span>
+    </button>
+  </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-3xl group/card hover:border-emerald-500/50 transition-all">
-                    <i class="ph ph-chart-line-up text-3xl text-emerald-400 mb-4"></i>
-                    <h3 class="font-syne font-bold text-slate-100 uppercase mb-2">Performance</h3>
-                    <p class="text-sm text-slate-500 font-mono italic">Google, Meta & TikTok Ads.</p>
-                </div>
-                <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-3xl group/card hover:border-emerald-500/50 transition-all">
-                    <i class="ph ph-robot text-3xl text-emerald-400 mb-4"></i>
-                    <h3 class="font-syne font-bold text-slate-100 uppercase mb-2">Automation</h3>
-                    <p class="text-sm text-slate-500 font-mono italic">Manychat & CRM Logic.</p>
-                </div>
-                <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-3xl group/card hover:border-emerald-500/50 transition-all">
-                    <i class="ph ph-database text-3xl text-emerald-400 mb-4"></i>
-                    <h3 class="font-syne font-bold text-slate-100 uppercase mb-2">Analytics</h3>
-                    <p class="text-sm text-slate-500 font-mono italic">GA4 & Looker Studio.</p>
-                </div>
-            </div>
-        </div>
+  <div class="half" id="half-lix">
+    <div class="orb"></div>
+    <div class="bg-letter">X</div>
+    <div class="status-pill"><span class="sdot blue"></span>Nuevo material en Spotify</div>
+    <div class="half-tag">L.I.X</div>
+    
+    <h1 class="half-title">El verso<br>que no<br>se borra.</h1>
+    <p class="half-desc">Dream pop · Psicodelia · Indie rock · Poesía.</p>
+    
+    <button class="enter-btn" id="btn-lix" onclick="openPanel('lix')">
+      <span class="eb-bg"></span>
+      <span class="eb-text">Entrar al Estudio</span>
+      <span class="eb-arrow">→</span>
+    </button>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><b>DATA STRATEGY</b><span class="tdot"></span><b>GROWTH</b><span class="tdot"></span><b>AUTOMATION</b><span class="tdot"></span><i>DREAM POP</i><span class="tdot"></span><i>PSICODELIA</i><span class="tdot"></span><i>INDIE ROCK</i><span class="tdot"></span></div>
+    <div class="ticker-item"><b>META ADS</b><span class="tdot"></span><b>GOOGLE ADS</b><span class="tdot"></span><b>TIKTOK ADS</b><span class="tdot"></span><i>POESÍA</i><span class="tdot"></span><i>SPOTIFY</i><span class="tdot"></span><i>L.I.X</i><span class="tdot"></span></div>
+    <div class="ticker-item"><b>DATA STRATEGY</b><span class="tdot"></span><b>GROWTH</b><span class="tdot"></span><b>AUTOMATION</b><span class="tdot"></span><i>DREAM POP</i><span class="tdot"></span><i>PSICODELIA</i><span class="tdot"></span><i>INDIE ROCK</i><span class="tdot"></span></div>
+    <div class="ticker-item"><b>META ADS</b><span class="tdot"></span><b>GOOGLE ADS</b><span class="tdot"></span><b>TIKTOK ADS</b><span class="tdot"></span><i>POESÍA</i><span class="tdot"></span><i>SPOTIFY</i><span class="tdot"></span><i>L.I.X</i><span class="tdot"></span></div>
+  </div>
+</div>
+
+<div class="panel" id="panel-pro">
+  <div class="pbar">
+    <div class="pbar-name">Luis Ixcayau  ·  <span class="pbar-accent">Growth Strategist</span></div>
+    <button class="close-btn" onclick="closePanel()">Cerrar panel  ✕</button>
+  </div>
+  <div class="pbody">
+
+    <div class="ai">
+      <div class="eyebrow">Growth Strategist</div>
+      <h2 class="p-headline">No ejecuto tácticas.<br>Construyo ecosistemas.</h2>
+      <p class="p-lead">Traduzco objetivos de negocio complejos en máquinas de adquisición escalables y rentables — impulsadas por análisis de datos duros, inteligencia artificial y automatización.</p>
     </div>
 
-    <div id="panel-art" class="panel relative overflow-hidden bg-slate-950 border-slate-800 cursor-pointer group">
-        <div class="absolute inset-0 bg-radial-glow opacity-30"></div>
-        
-        <div id="home-art" class="content-fade absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
-            <div class="mb-4 flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700">
-                <div class="w-2 h-2 rounded-full bg-blue-400 blink-dot"></div>
-                <span class="text-[10px] font-mono text-slate-300 uppercase tracking-tighter">New track in Spotify</span>
-            </div>
-            <h1 class="dynamic-title art-dynamic font-cormorant italic text-slate-100 leading-none">
-                L.I.X
-            </h1>
-            <p class="mt-2 font-cormorant italic text-lg text-slate-500">El verso que no se borra.</p>
+    <div class="bento ai">
+      <div class="bc">
+        <span class="bc-label">Caso · Educación</span>
+        <div class="bc-val">+45%</div>
+        <div class="bc-desc">Inscripciones via IA conversacional y flujos automatizados a gran escala</div>
+      </div>
+      <div class="bc">
+        <span class="bc-label">Caso · Financiera</span>
+        <div class="bc-val">1.9M</div>
+        <div class="bc-desc">Alcance omnicanal: Meta, TikTok, SEM & Programmatic</div>
+      </div>
+      <div class="bc">
+        <span class="bc-label">Reproducciones</span>
+        <div class="bc-val">265K</div>
+        <div class="bc-desc">Campaña de préstamos con micro-segmentación geográfica</div>
+      </div>
+      <div class="bc s2">
+        <span class="bc-label">Performance & Ads</span>
+        <div class="bc-desc">Meta Ads, Google Ads, TikTok Ads — análisis y optimización de KPIs omnicanal con presupuesto optimizado radicalmente.</div>
+        <div class="chips">
+          <span class="chip">Meta Ads</span>
+          <span class="chip">Google Ads</span>
+          <span class="chip">TikTok Ads</span>
+          <span class="chip">Programmatic</span>
+          <span class="chip">SEM</span>
         </div>
-
-        <div id="expanded-art" class="expanded-content absolute inset-0 overflow-y-auto opacity-0 pointer-events-none z-20 p-8 md:p-16">
-            <div class="flex justify-end mb-12">
-                <button id="btn-back-art" class="flex items-center gap-2 text-blue-400 font-mono text-sm uppercase tracking-widest hover:text-white transition-colors">
-                    Cerrar <i class="ph ph-arrow-right"></i>
-                </button>
-            </div>
-            
-            <header class="mb-16">
-                <h2 class="text-6xl md:text-8xl font-cormorant italic text-slate-100 mb-4">L.I.X</h2>
-                <p class="text-2xl text-slate-400 font-cormorant italic max-w-xl">
-                    Dream pop y poesía introspectiva desde el corazón de Guatemala.
-                </p>
-            </header>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <section>
-                    <h3 class="text-xl font-cormorant italic text-blue-400 border-b border-slate-800 pb-4 mb-8">Estudio</h3>
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/123?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </section>
-                <section>
-                    <h3 class="text-xl font-cormorant italic text-blue-400 border-b border-slate-800 pb-4 mb-8">Poesía</h3>
-                    <div class="bg-slate-900/30 p-8 rounded-3xl border border-slate-800">
-                        <p class="text-xl text-slate-300 font-cormorant italic leading-relaxed">
-                            "¿De qué sirve Noviembre si me falta la existencia?..."
-                        </p>
-                        <a href="poemas.html" class="inline-block mt-6 text-blue-400 font-cormorant italic hover:text-white transition-all">Leer más →</a>
-                    </div>
-                </section>
-            </div>
+      </div>
+      <div class="bc s1">
+        <span class="bc-label">Growth & Automation</span>
+        <div class="bc-desc">ManyChat y ActiveCampaign para cualificación de leads y flujos de retención.</div>
+      </div>
+      <div class="bc s3">
+        <span class="bc-label">Data & Estrategia IA</span>
+        <div class="bc-desc">Data Studio para visualización. ChatGPT, Gemini y Suno integrados operativamente en flujos de producción reales.</div>
+        <div class="chips">
+          <span class="chip">Data Studio</span>
+          <span class="chip">ChatGPT</span>
+          <span class="chip">Gemini</span>
+          <span class="chip">Suno</span>
+          <span class="chip">ManyChat</span>
+          <span class="chip">ActiveCampaign</span>
         </div>
+      </div>
     </div>
 
-    <script src="main.js"></script>
+  </div>
+</div>
+
+<div class="panel" id="panel-lix">
+  <div class="pbar">
+    <div class="pbar-name">L.I.X  ·  <span class="pbar-accent">Proyecto Musical</span></div>
+    <button class="close-btn" onclick="closePanel()">Cerrar estudio  ✕</button>
+  </div>
+  <div class="pbody">
+
+    <div class="ai">
+      <div class="eyebrow">Música · Poesía</div>
+      <h2 class="p-headline">L.I.X</h2>
+      <p class="p-lead">Proyecto musical introspectivo que mezcla dream pop, psicodelia e indie rock con el peso de la palabra poética.</p>
+    </div>
+
+    <div class="lix-grid ai">
+      <section>
+        <h3 class="lix-section-title">Estudio de Grabación</h3>
+        
+        <iframe style="border-radius:12px; margin-bottom: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" src="https://open.spotify.com/embed/track/1yvMUkIOTeUNtNWlTrgW85?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
+        <iframe style="border-radius:12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" src="https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
+        <a class="lix-link" href="https://open.spotify.com/intl-es/artist/1S0svIt3HsYt6LK9A8Aa76" target="_blank">
+          <div class="sp-dot"></div>Ver perfil en Spotify
+        </a>
+      </section>
+
+      <section>
+        <h3 class="lix-section-title">Antología</h3>
+        
+        <div class="pcard">
+          <div class="poem-meta">Extracto · ¿De qué sirve Noviembre?</div>
+          <div class="poem-text">
+            <span>¿De qué sirve Noviembre si me falta la existencia?</span>
+            <span>Si en cada esquina solo veo tu sombra caminando</span>
+            <span>mientras se aleja en una dimensión desconocida</span>
+            <span>aparente ante todos e inaudita para mí...</span>
+          </div>
+        </div>
+        
+        <div class="pcard">
+          <div class="poem-meta">Extracto · El Tiempo de los Cambios</div>
+          <div class="poem-text">
+            <span>Ha estado recorriendo durante nueve vidas</span>
+            <span>Con tanta carga y tantas dolencias</span>
+            <span>Su mirada ya no es hermosa</span>
+            <span>Su carisma ha desaparecido...</span>
+          </div>
+        </div>
+
+        <a class="lix-link" href="poemas.html" style="border-color:transparent;">
+          Leer todos los poemas →
+        </a>
+      </section>
+    </div>
+
+  </div>
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>
