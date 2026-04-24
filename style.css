@@ -55,13 +55,6 @@ body.on-lix #cur-r { border-color: var(--lix); }
 .cursor-big #cur   { width:16px; height:16px; }
 .cursor-big #cur-r { opacity:0; }
 
-/* TEXTURA NOISE */
-body::after {
-  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
-  opacity: .5;
-}
-
 /* TICKER INFERIOR */
 .ticker {
   position: fixed; bottom:0; left:0; right:0; z-index: 50;
@@ -98,7 +91,7 @@ body::after {
 }
 #half-pro {
   background: radial-gradient(ellipse 60% 55% at 10% 30%, rgba(52,211,153,.08) 0%, transparent 65%), var(--bg);
-  border-right: 1px solid var(--border);
+  ;
 }
 #half-lix {
   background: radial-gradient(ellipse 60% 55% at 90% 30%, rgba(96,165,250,.08) 0%, transparent 65%), var(--bg);
@@ -185,15 +178,6 @@ body::after {
 #btn-pro .eb-bg { background: var(--pro); }
 #btn-lix { border: 1px solid var(--lix); color: var(--lix); }
 #btn-lix .eb-bg { background: var(--lix); }
-
-/* DIVIDER */
-#divider { position: absolute; left:50%; top:0; bottom:0; width: 1px; background: var(--border); pointer-events:none; z-index:5; }
-#divider-dot {
-  position: absolute; top:50%; left:-5.5px; width: 12px; height: 12px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--pro), var(--lix)); box-shadow: 0 0 20px rgba(52,211,153,.35);
-  animation: ddot 3.5s ease-in-out infinite;
-}
-@keyframes ddot { 0%,100% { transform:translateY(0) scale(1); } 50% { transform:translateY(-10px) scale(1.3); } }
 
 /* ═══════════════════════════════════════
    PANELES EXPANDIDOS (MODO CRISTAL)
