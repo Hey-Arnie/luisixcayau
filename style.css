@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   TOKENS (Colores)
+   TOKENS
 ═══════════════════════════════════════ */
 :root {
   --pro:   #34d399; /* Esmeralda Growth */
@@ -19,6 +19,8 @@
 /* ═══════════════════════════════════════
    BASE
 ═══════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Mono:wght@400;500;600&family=Inter:wght@400;500&family=Syne:wght@400;700;800&display=swap');
+
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html, body { width:100%; height:100%; overflow:hidden; }
 
@@ -29,7 +31,7 @@ body {
   cursor: auto;
 }
 
-/* CURSOR MAGNÉTICO (SOLO PARA COMPUTADORAS/MOUSE) */
+/* CURSOR MAGNÉTICO (SOLO PARA COMPUTADORAS) */
 @media (pointer: fine) {
   body { cursor: none; }
   #cur {
@@ -56,31 +58,40 @@ body {
   .cursor-big #cur-r { opacity:0; }
 }
 
-/* OCULTAR CURSOR EN MÓVILES/PANTALLAS TÁCTILES */
 @media (pointer: coarse) {
   #cur, #cur-r { display: none !important; }
 }
 
-/* SPLIT SCREEN LANDING */
+/* ═══════════════════════════════════════
+   SPLIT SCREEN (NUEVO MOTOR FLUIDO)
+═══════════════════════════════════════ */
 #split {
   position: fixed; inset: 0;
-  display: grid; grid-template-columns: 1fr 1fr;
-  transition: grid-template-columns .6s cubic-bezier(.77,0,.18,1);
+  display: flex; /* Cambiado a Flexbox para 60fps */
 }
-#split:has(#half-pro:hover):not(.locked) { grid-template-columns: 60% 40%; }
-#split:has(#half-lix:hover):not(.locked) { grid-template-columns: 40% 60%; }
 
 .half {
   position: relative; overflow: hidden; display: flex; flex-direction: column;
   justify-content: center; padding: 3rem 4.5vw;
+  width: 50%;
+  will-change: width; /* Obliga a la tarjeta gráfica a procesar la animación */
+  transition: width .6s cubic-bezier(.77,0,.18,1);
 }
+
+/* Reglas de expansión fluida */
+#split:has(#half-pro:hover):not(.locked) #half-pro { width: 60%; }
+#split:has(#half-pro:hover):not(.locked) #half-lix { width: 40%; }
+
+#split:has(#half-lix:hover):not(.locked) #half-lix { width: 60%; }
+#split:has(#half-lix:hover):not(.locked) #half-pro { width: 40%; }
+
+
 #half-pro {
   background: radial-gradient(ellipse 60% 55% at 10% 30%, rgba(52,211,153,.08) 0%, transparent 65%), var(--bg);
 }
 #half-lix {
   background: radial-gradient(ellipse 60% 55% at 90% 30%, rgba(96,165,250,.08) 0%, transparent 65%), var(--bg);
 }
-/* Grid suave de fondo */
 .half::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
@@ -133,16 +144,11 @@ body {
 #half-lix .half-tag { color: var(--lix); }
 #half-lix .half-tag::before { background: var(--lix); }
 
-/* CAMBIO: Tamaños de títulos más pequeños y elegantes */
 .half-title {
-  font-family: 'Syne', sans-serif; 
-  font-size: clamp(2rem, 3.2vw, 3rem); /* Reducido de 3.8rem */
+  font-family: 'Syne', sans-serif; font-size: clamp(2rem, 3.2vw, 3rem);
   font-weight: 800; line-height: .95; letter-spacing: -.03em; margin-bottom: .9rem; color: var(--text);
 }
-#half-lix .half-title { 
-  font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; 
-  font-size: clamp(2.4rem, 4vw, 3.8rem); /* Reducido de 4.5rem */
-}
+#half-lix .half-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: clamp(2.4rem, 4vw, 3.8rem); }
 
 .half-desc {
   font-family: 'Inter', sans-serif; font-size: clamp(.88rem, 1.3vw, 1rem);
@@ -157,7 +163,6 @@ body {
   padding: .75rem 1.6rem; position: relative; overflow: hidden; transition: color .25s; border-radius: 100px;
 }
 @media (pointer: fine) { .enter-btn { cursor: none; } }
-
 .enter-btn .eb-bg {
   position: absolute; inset: 0; transition: transform .38s cubic-bezier(.77,0,.18,1); transform: translateX(-101%);
 }
@@ -286,7 +291,8 @@ body {
 
 /* MÓVIL */
 @media (max-width: 768px) {
-  #split { grid-template-columns:1fr !important; grid-template-rows:1fr 1fr; }
+  #split { flex-direction: column; }
+  .half { width: 100% !important; padding: 2rem 4.5vw; }
   .bento { grid-template-columns:1fr; }
   .bc.s2, .bc.s3 { grid-column:span 1; }
   .lix-grid { grid-template-columns: 1fr; gap: 2rem; }
