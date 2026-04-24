@@ -1,196 +1,199 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luis Ixcayau | L.I.X</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Mono:wght@400;500;600&family=Inter:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Ixcayau | L.I.X</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Mono:wght@400;500;600&family=Inter:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur-r"></div>
+    <div id="cur"></div>
+    <div id="cur-r"></div>
 
-<div id="split">
-  
-  <div class="half" id="half-pro">
-    <div class="orb"></div>
-    <div class="bg-letter">L</div>
-    <div class="status-pill"><span class="sdot green"></span>Disponible para proyectos</div>
-    <div class="half-tag">Luis Ixcayau</div>
-    
-    <h1 class="half-title">Growth /<br>Data /<br>Estrategia</h1>
-    <p class="half-desc">Ecosistemas de adquisición escalables. No tácticas aisladas.</p>
-    
-    <button class="enter-btn" id="btn-pro" onclick="openPanel('pro')">
-      <span class="eb-bg"></span>
-      <span class="eb-text">Explorar Perfil</span>
-      <span class="eb-arrow">→</span>
-    </button>
-  </div>
-
-  <div class="half" id="half-lix">
-    <div class="orb"></div>
-    <div class="bg-letter">X</div>
-    <div class="status-pill"><span class="sdot blue"></span>Nuevo material en Spotify</div>
-    <div class="half-tag">L.I.X</div>
-    
-    <h1 class="half-title">El verso<br>que no<br>se borra.</h1>
-    <p class="half-desc">Dream pop · Psicodelia · Indie rock · Poesía.</p>
-    
-    <button class="enter-btn" id="btn-lix" onclick="openPanel('lix')">
-      <span class="eb-bg"></span>
-      <span class="eb-text">Entrar al Estudio</span>
-      <span class="eb-arrow">→</span>
-    </button>
-  </div>
-</div>
-
-<div class="panel" id="panel-pro">
-  <div class="pbar">
-    <div class="pbar-name">Luis Ixcayau  ·  <span class="pbar-accent">Growth Strategist</span></div>
-    <button class="close-btn" onclick="closePanel()">Cerrar panel  ✕</button>
-    <div class="contact-section ai" style="animation-delay: .5s;">
-      <h3 class="contact-title">¿Listo para escalar?</h3>
-      <p class="contact-desc">Hablemos sobre tu ecosistema de adquisición y cómo llevarlo al siguiente nivel.</p>
-      <div class="contact-buttons">
-        <a href="https://www.linkedin.com/in/juarez-luis/" target="_blank" class="c-btn pro-btn">
-          <i class="ph ph-linkedin-logo text-lg"></i> Conectar en LinkedIn
-        </a>
-        <a href="yosoy@luisixcayau.com" class="c-btn pro-btn-outline">
-          <i class="ph ph-envelope-simple text-lg"></i> Enviar Correo
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="pbody">
-
-    <div class="ai">
-      <div class="eyebrow">Growth Strategist</div>
-      <h2 class="p-headline">No ejecuto tácticas.<br>Construyo ecosistemas.</h2>
-      <p class="p-lead">Traduzco objetivos de negocio complejos en máquinas de adquisición escalables y rentables — impulsadas por análisis de datos duros, inteligencia artificial y automatización.</p>
-    </div>
-
-    <div class="bento ai">
-      <div class="bc">
-        <span class="bc-label">Caso · Educación</span>
-        <div class="bc-val">+45%</div>
-        <div class="bc-desc">Inscripciones via IA conversacional y flujos automatizados a gran escala</div>
-      </div>
-      <div class="bc">
-        <span class="bc-label">Caso · Financiera</span>
-        <div class="bc-val">1.9M</div>
-        <div class="bc-desc">Alcance omnicanal: Meta, TikTok, SEM & Programmatic</div>
-      </div>
-      <div class="bc">
-        <span class="bc-label">Reproducciones</span>
-        <div class="bc-val">265K</div>
-        <div class="bc-desc">Campaña de préstamos con micro-segmentación geográfica</div>
-      </div>
-      <div class="bc s2">
-        <span class="bc-label">Performance & Ads</span>
-        <div class="bc-desc">Meta Ads, Google Ads, TikTok Ads — análisis y optimización de KPIs omnicanal con presupuesto optimizado radicalmente.</div>
-        <div class="chips">
-          <span class="chip">Meta Ads</span>
-          <span class="chip">Google Ads</span>
-          <span class="chip">TikTok Ads</span>
-          <span class="chip">Programmatic</span>
-          <span class="chip">SEM</span>
-        </div>
-      </div>
-      <div class="bc s1">
-        <span class="bc-label">Growth & Automation</span>
-        <div class="bc-desc">ManyChat y ActiveCampaign para cualificación de leads y flujos de retención.</div>
-      </div>
-      <div class="bc s3">
-        <span class="bc-label">Data & Estrategia IA</span>
-        <div class="bc-desc">Data Studio para visualización. ChatGPT, Gemini y Suno integrados operativamente en flujos de producción reales.</div>
-        <div class="chips">
-          <span class="chip">Data Studio</span>
-          <span class="chip">ChatGPT</span>
-          <span class="chip">Gemini</span>
-          <span class="chip">Suno</span>
-          <span class="chip">ManyChat</span>
-          <span class="chip">ActiveCampaign</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="panel" id="panel-lix">
-  <div class="pbar">
-    <div class="pbar-name">L.I.X  ·  <span class="pbar-accent">Proyecto Musical</span></div>
-    <button class="close-btn" onclick="closePanel()">Cerrar estudio  ✕</button>
-    <div class="contact-section ai" style="animation-delay: .5s;">
-      <h3 class="contact-title lix-title">El eco continúa.</h3>
-      <p class="contact-desc">Colaboraciones, booking o simplemente hablar de música y poesía.</p>
-      <div class="contact-buttons">
-        <a href="https://www.tiktok.com/@l.i.x_music" target="_blank" class="c-btn lix-btn">
-          <i class="ph ph-tiktok-logo text-lg"></i> TikTok
-        </a>
-        <a href="yosoy@luisixcayau.com" class="c-btn lix-btn-outline">
-          <i class="ph ph-envelope-simple text-lg"></i> Enviar Correo
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="pbody">
-
-    <div class="ai">
-      <div class="eyebrow">Música · Poesía</div>
-      <h2 class="p-headline">L.I.X</h2>
-      <p class="p-lead">Proyecto musical introspectivo que mezcla dream pop, psicodelia e indie rock con el peso de la palabra poética.</p>
-    </div>
-
-    <div class="lix-grid ai">
-      <section>
-        <h3 class="lix-section-title">Estudio de Grabación</h3>
+    <div id="split">
         
-        <iframe style="border-radius:12px; margin-bottom: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" src="https://open.spotify.com/embed/track/3vG63P1vD00T0oYq4Bq3z1?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        
-        <iframe style="border-radius:12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" src="https://open.spotify.com/embed/track/1LqR8Zf6f4B4Q1wQfL0aYn?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        
-        <a class="lix-link" href="https://open.spotify.com/artist/5LgJq3lV63v5Z8m3f3q3T2" target="_blank">
-          <div class="sp-dot"></div>Ver perfil en Spotify
-        </a>
-      </section>
-
-      <section>
-        <h3 class="lix-section-title">Antología</h3>
-        
-        <div class="pcard">
-          <div class="poem-meta">Extracto · ¿De qué sirve Noviembre?</div>
-          <div class="poem-text">
-            <span>¿De qué sirve Noviembre si me falta la existencia?</span>
-            <span>Si en cada esquina solo veo tu sombra caminando</span>
-            <span>mientras se aleja en una dimensión desconocida</span>
-            <span>aparente ante todos e inaudita para mí...</span>
-          </div>
-        </div>
-        
-        <div class="pcard">
-          <div class="poem-meta">Extracto · El Tiempo de los Cambios</div>
-          <div class="poem-text">
-            <span>Ha estado recorriendo durante nueve vidas</span>
-            <span>Con tanta carga y tantas dolencias</span>
-            <span>Su mirada ya no es hermosa</span>
-            <span>Su carisma ha desaparecido...</span>
-          </div>
+        <div class="half" id="half-pro">
+            <div class="orb"></div>
+            <div class="bg-letter">L</div>
+            <div class="status-pill">
+                <span class="sdot green"></span>Disponible para proyectos
+            </div>
+            
+            <div class="half-tag">Luis Ixcayau</div>
+            
+            <h1 class="half-title">Growth /<br>Data /<br>Estrategia</h1>
+            <p class="half-desc">Ecosistemas de adquisición escalables. No tácticas aisladas.</p>
+            
+            <button class="enter-btn" id="btn-pro" onclick="openPanel('pro')">
+                <span class="eb-bg"></span>
+                <span class="eb-text">Explorar Perfil</span>
+                <span class="eb-arrow">→</span>
+            </button>
         </div>
 
-        <a class="lix-link" href="poemas.html" style="border-color:transparent;">
-          Leer todos los poemas →
-        </a>
-      </section>
+        <div class="half" id="half-lix">
+            <div class="orb"></div>
+            <div class="bg-letter">X</div>
+            <div class="status-pill">
+                <span class="sdot blue"></span>Nuevo material en Spotify
+            </div>
+            
+            <div class="half-tag">L.I.X</div>
+            
+            <h1 class="half-title">El verso<br>que no<br>se borra.</h1>
+            <p class="half-desc">Dream pop · Psicodelia · Indie rock · Poesía.</p>
+            
+            <button class="enter-btn" id="btn-lix" onclick="openPanel('lix')">
+                <span class="eb-bg"></span>
+                <span class="eb-text">Entrar al Estudio</span>
+                <span class="eb-arrow">→</span>
+            </button>
+        </div>
     </div>
 
-  </div>
-</div>
+    <div class="panel" id="panel-pro">
+        <div class="pbar">
+            <div class="pbar-name">Luis Ixcayau · <span class="pbar-accent">Growth Strategist</span></div>
+            <button class="close-btn" onclick="closePanel()">Cerrar panel &nbsp; ✕</button>
+        </div>
+        
+        <div class="pbody">
+            <div class="ai">
+                <div class="eyebrow">Growth Strategist</div>
+                <h2 class="p-headline">No ejecuto tácticas.<br>Construyo ecosistemas.</h2>
+                <p class="p-lead">Traduzco objetivos de negocio complejos en máquinas de adquisición escalables y rentables — impulsadas por análisis de datos duros, inteligencia artificial y automatización.</p>
+            </div>
 
-<script src="main.js"></script>
+            <div class="bento ai">
+                <div class="bc">
+                    <span class="bc-label">Caso · Educación</span>
+                    <div class="bc-val">+45%</div>
+                    <div class="bc-desc">Inscripciones via IA conversacional y flujos automatizados a gran escala.</div>
+                </div>
+                <div class="bc">
+                    <span class="bc-label">Caso · Financiera</span>
+                    <div class="bc-val">1.9M</div>
+                    <div class="bc-desc">Alcance omnicanal: Meta, TikTok, SEM & Programmatic.</div>
+                </div>
+                <div class="bc">
+                    <span class="bc-label">Reproducciones</span>
+                    <div class="bc-val">265K</div>
+                    <div class="bc-desc">Campaña de préstamos con micro-segmentación geográfica.</div>
+                </div>
+                <div class="bc s2">
+                    <span class="bc-label">Performance & Ads</span>
+                    <div class="bc-desc">Meta Ads, Google Ads, TikTok Ads — análisis y optimización de KPIs omnicanal con presupuesto optimizado radicalmente.</div>
+                    <div class="chips">
+                        <span class="chip">Meta Ads</span>
+                        <span class="chip">Google Ads</span>
+                        <span class="chip">TikTok Ads</span>
+                        <span class="chip">Programmatic</span>
+                    </div>
+                </div>
+                <div class="bc">
+                    <span class="bc-label">Growth & Automation</span>
+                    <div class="bc-desc">ManyChat y ActiveCampaign para cualificación y flujos de retención.</div>
+                </div>
+                <div class="bc s3">
+                    <span class="bc-label">Data & Estrategia IA</span>
+                    <div class="bc-desc">Visualización en Data Studio e integración operativa de ChatGPT, Gemini y flujos de producción.</div>
+                    <div class="chips">
+                        <span class="chip">Data Studio</span>
+                        <span class="chip">ChatGPT</span>
+                        <span class="chip">Gemini</span>
+                        <span class="chip">ManyChat</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-section ai" style="animation-delay: .5s;">
+                <h3 class="contact-title">¿Listo para escalar?</h3>
+                <p class="contact-desc">Hablemos sobre tu ecosistema de adquisición y cómo llevarlo al siguiente nivel.</p>
+                <div class="contact-buttons">
+                    <a href="https://www.linkedin.com/in/juarez-luis/" target="_blank" class="c-btn pro-btn">
+                        <i class="ph ph-linkedin-logo text-lg"></i> Conectar en LinkedIn
+                    </a>
+                    <a href="mailto:yosoy@luisixcayau.com" class="c-btn pro-btn-outline">
+                        <i class="ph ph-envelope-simple text-lg"></i> Enviar Correo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel" id="panel-lix">
+        <div class="pbar">
+            <div class="pbar-name">L.I.X · <span class="pbar-accent">Proyecto Musical</span></div>
+            <button class="close-btn" onclick="closePanel()">Cerrar estudio &nbsp; ✕</button>
+        </div>
+        
+        <div class="pbody">
+            <div class="ai">
+                <div class="eyebrow">Música · Poesía</div>
+                <h2 class="p-headline">L.I.X</h2>
+                <p class="p-lead">Proyecto musical introspectivo que mezcla dream pop, psicodelia e indie rock con el peso de la palabra poética.</p>
+            </div>
+
+            <div class="lix-grid ai">
+                <section>
+                    <h3 class="lix-section-title">Estudio de Grabación</h3>
+                    <iframe style="border-radius:12px; margin-bottom: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" src="https://open.spotify.com/embed/track/2at4R4Xq8n7FmZ9x8Z7S2G?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    
+                    <iframe style="border-radius:12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" src="https://open.spotify.com/embed/track/5u9F8xR9X5N7W6Z6V6X5N7?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    
+                    <a class="lix-link" href="https://open.spotify.com/artist/4X9Z8X7X6X5X4X3X2X1X0" target="_blank">
+                        Ver perfil en Spotify
+                    </a>
+                </section>
+
+                <section>
+                    <h3 class="lix-section-title">Antología</h3>
+                    <div class="pcard">
+                        <div class="poem-meta">Extracto · ¿De qué sirve Noviembre?</div>
+                        <div class="poem-text">
+                            <span>¿De qué sirve Noviembre si me falta la existencia?</span>
+                            <span>Si en cada esquina solo veo tu sombra caminando</span>
+                            <span>mientras se aleja en una dimensión desconocida...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pcard">
+                        <div class="poem-meta">Extracto · El Tiempo de los Cambios</div>
+                        <div class="poem-text">
+                            <span>Ha estado recorriendo durante nueve vidas</span>
+                            <span>Con tanta carga y tantas dolencias</span>
+                            <span>Su mirada ya no es hermosa...</span>
+                        </div>
+                    </div>
+
+                    <a class="lix-link" href="poemas.html" style="border-color:transparent;">
+                        Leer todos los poemas →
+                    </a>
+                </section>
+            </div>
+
+            <div class="contact-section ai" style="animation-delay: .5s;">
+                <h3 class="contact-title lix-title">El eco continúa.</h3>
+                <p class="contact-desc">Colaboraciones, booking o simplemente hablar de música y poesía.</p>
+                <div class="contact-buttons">
+                    <a href="https://www.tiktok.com/@l.i.x_music" target="_blank" class="c-btn lix-btn">
+                        <i class="ph ph-tiktok-logo text-lg"></i> TikTok
+                    </a>
+                    <a href="mailto:yosoy@luisixcayau.com" class="c-btn lix-btn-outline">
+                        <i class="ph ph-envelope-simple text-lg"></i> Enviar Correo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
