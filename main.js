@@ -1,64 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const body = document.body;
-    const panels = {
-        pro: document.getElementById('panel-pro'),
-        art: document.getElementById('panel-art')
-    };
-    const expandeds = {
-        pro: document.getElementById('expanded-pro'),
-        art: document.getElementById('expanded-art')
-    };
-    const btnBacks = {
-        pro: document.getElementById('btn-back-pro'),
-        art: document.getElementById('btn-back-art')
-    };
+    // 1. MOTOR DEL CURSOR MAGNÉTICO
+    const cur  = document.getElementById('cur');
+    const curR = document.getElementById('cur-r');
+    let mx=0, my=0, rx=0, ry=0;
 
-    let currentState = 'home';
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cur.style.transform = `translate(${mx-4.5}px,${my-4.5}px)`;
+    });
+    
+    (function loop(){
+      rx += (mx-rx)*.11; ry += (my-ry)*.11;
+      curR.style.transform = `translate(${rx-15}px,${ry-15}px)`;
+      requestAnimationFrame(loop);
+    })();
 
-    function setPanelState(state) {
-        currentState = state;
-        body.classList.remove('pro-hover', 'art-hover', 'pro-expanded', 'art-expanded');
-        
-        if (state === 'pro-expanded') {
-            body.classList.add('pro-expanded');
-            expandeds.pro.style.opacity = "1";
-            expandeds.pro.style.pointerEvents = "auto";
-        } else if (state === 'art-expanded') {
-            body.classList.add('art-expanded');
-            expandeds.art.style.opacity = "1";
-            expandeds.art.style.pointerEvents = "auto";
-        } else {
-            expandeds.pro.style.opacity = "0";
-            expandeds.pro.style.pointerEvents = "none";
-            expandeds.art.style.opacity = "0";
-            expandeds.art.style.pointerEvents = "none";
-        }
+    // Hacer grande el cursor al pasar por botones o tarjetas
+    document.querySelectorAll('a, button, .bc, .half, .pcard, iframe').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-big'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-big'));
+    });
+
+    // 2. EFECTO DE LUZ AZUL AL PASAR POR LIX
+    const halfLix = document.getElementById('half-lix');
+    if(halfLix) {
+        halfLix.addEventListener('mouseenter', () => document.body.classList.add('on-lix'));
+        halfLix.addEventListener('mouseleave', () => {
+            if(window.activePanel !== 'lix') document.body.classList.remove('on-lix');
+        });
     }
 
-    // Hover logic
-    panels.pro.addEventListener('mouseenter', () => { if(currentState === 'home') body.classList.add('pro-hover'); body.classList.add('cursor-pro'); });
-    panels.pro.addEventListener('mouseleave', () => { body.classList.remove('pro-hover', 'cursor-pro'); });
-    
-    panels.art.addEventListener('mouseenter', () => { if(currentState === 'home') body.classList.add('art-hover'); body.classList.add('cursor-art'); });
-    panels.art.addEventListener('mouseleave', () => { body.classList.remove('art-hover', 'cursor-art'); });
-
-    // Click logic
-    panels.pro.addEventListener('click', () => { if(currentState === 'home') setPanelState('pro-expanded'); });
-    panels.art.addEventListener('click', () => { if(currentState === 'home') setPanelState('art-expanded'); });
-
-    // Back buttons
-    btnBacks.pro.addEventListener('click', (e) => { e.stopPropagation(); setPanelState('home'); });
-    btnBacks.art.addEventListener('click', (e) => { e.stopPropagation(); setPanelState('home'); });
-
-    // Custom Cursor
-    const cursor = document.getElementById('custom-cursor');
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-
-    // Tecla ESC para cerrar
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') setPanelState('home');
+    // 3. TECLA ESCAPE PARA CERRAR
+    document.addEventListener('keydown', e => {
+        if(e.key === 'Escape') window.closePanel();
     });
 });
+
+// 4. FUNCIONES GLOBALES DE APERTURA/CIERRE
+window.activePanel = null;
+
+window.openPanel = function(id) {
+  window.activePanel = id;
+  document.getElementById('panel-'+id).classList.add('open');
+  document.getElementById('split').classList.add('locked');
+  if (id === 'lix') document.body.classList.add('on-lix');
+};
+
+window.closePanel = function() {
+  if (!window.activePanel) return;
+  document.getElementById('panel-'+window.activePanel).classList.remove('open');
+  document.getElementById('split').classList.remove('locked');
+  document.body.classList.remove('on-lix');
+  window.activePanel = null;
+};
