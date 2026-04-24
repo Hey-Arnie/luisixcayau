@@ -1,13 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
-    
     const panels = {
         pro: document.getElementById('panel-pro'),
         art: document.getElementById('panel-art')
-    };
-    const homes = {
-        pro: document.getElementById('home-pro'),
-        art: document.getElementById('home-art')
     };
     const expandeds = {
         pro: document.getElementById('expanded-pro'),
@@ -18,94 +13,52 @@ document.addEventListener('DOMContentLoaded', () => {
         art: document.getElementById('btn-back-art')
     };
 
-    let currentState = 'home'; 
+    let currentState = 'home';
 
-    function updateState(newState) {
-        currentState = newState;
-        body.classList.remove('pro-expanded', 'art-expanded', 'pro-hover', 'art-hover');
+    function setPanelState(state) {
+        currentState = state;
+        body.classList.remove('pro-hover', 'art-hover', 'pro-expanded', 'art-expanded');
         
-        if (newState === 'pro') {
+        if (state === 'pro-expanded') {
             body.classList.add('pro-expanded');
-            toggleVisibility('pro');
-        } else if (newState === 'art') {
+            expandeds.pro.style.opacity = "1";
+            expandeds.pro.style.pointerEvents = "auto";
+        } else if (state === 'art-expanded') {
             body.classList.add('art-expanded');
-            toggleVisibility('art');
+            expandeds.art.style.opacity = "1";
+            expandeds.art.style.pointerEvents = "auto";
         } else {
-            toggleVisibility('home');
+            expandeds.pro.style.opacity = "0";
+            expandeds.pro.style.pointerEvents = "none";
+            expandeds.art.style.opacity = "0";
+            expandeds.art.style.pointerEvents = "none";
         }
     }
 
-    function toggleVisibility(target) {
-        if (target === 'home') {
-            Object.values(expandeds).forEach(el => {
-                el.classList.add('pointer-events-none', 'opacity-0');
-                el.classList.remove('opacity-100');
-            });
-            
-            setTimeout(() => {
-                Object.values(homes).forEach(el => {
-                    el.classList.replace('opacity-0', 'opacity-100');
-                    el.classList.replace('scale-95', 'scale-100');
-                });
-            }, 500); 
-            
-            panels.pro.classList.add('cursor-pointer');
-            panels.art.classList.add('cursor-pointer');
-        } else {
-            Object.values(homes).forEach(el => {
-                el.classList.replace('opacity-100', 'opacity-0');
-                el.classList.replace('scale-100', 'scale-95');
-            });
-            
-            panels.pro.classList.remove('cursor-pointer');
-            panels.art.classList.remove('cursor-pointer');
-
-            setTimeout(() => {
-                expandeds[target].classList.remove('pointer-events-none', 'opacity-0');
-                expandeds[target].classList.add('opacity-100');
-            }, 400);
-        }
-    }
-
-    // HOVER EVENTS
-    panels.pro.addEventListener('mouseenter', () => { 
-        if (currentState === 'home') body.classList.add('pro-hover'); 
-        body.classList.add('cursor-pro'); 
-        body.classList.remove('cursor-art'); 
-    });
-    panels.pro.addEventListener('mouseleave', () => { body.classList.remove('pro-hover'); });
+    // Hover logic
+    panels.pro.addEventListener('mouseenter', () => { if(currentState === 'home') body.classList.add('pro-hover'); body.classList.add('cursor-pro'); });
+    panels.pro.addEventListener('mouseleave', () => { body.classList.remove('pro-hover', 'cursor-pro'); });
     
-    panels.art.addEventListener('mouseenter', () => { 
-        if (currentState === 'home') body.classList.add('art-hover'); 
-        body.classList.add('cursor-art'); 
-        body.classList.remove('cursor-pro'); 
+    panels.art.addEventListener('mouseenter', () => { if(currentState === 'home') body.classList.add('art-hover'); body.classList.add('cursor-art'); });
+    panels.art.addEventListener('mouseleave', () => { body.classList.remove('art-hover', 'cursor-art'); });
+
+    // Click logic
+    panels.pro.addEventListener('click', () => { if(currentState === 'home') setPanelState('pro-expanded'); });
+    panels.art.addEventListener('click', () => { if(currentState === 'home') setPanelState('art-expanded'); });
+
+    // Back buttons
+    btnBacks.pro.addEventListener('click', (e) => { e.stopPropagation(); setPanelState('home'); });
+    btnBacks.art.addEventListener('click', (e) => { e.stopPropagation(); setPanelState('home'); });
+
+    // Custom Cursor
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
     });
-    panels.art.addEventListener('mouseleave', () => { body.classList.remove('art-hover'); });
 
-    // CLICK EVENTS
-    panels.pro.addEventListener('click', () => { if (currentState === 'home') updateState('pro'); });
-    panels.art.addEventListener('click', () => { if (currentState === 'home') updateState('art'); });
-
-    btnBacks.pro.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
-    btnBacks.art.addEventListener('click', (e) => { e.stopPropagation(); updateState('home'); });
-
-    // ESCAPE KEY TO CLOSE
-    document.addEventListener('keydown', (e) => { 
-        if(e.key === 'Escape' && currentState !== 'home') updateState('home'); 
+    // Tecla ESC para cerrar
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setPanelState('home');
     });
-
-    // CUSTOM CURSOR LOGIC
-    const customCursor = document.getElementById('custom-cursor');
-    if(customCursor) {
-        document.addEventListener('mousemove', (e) => {
-            customCursor.style.left = e.clientX + 'px';
-            customCursor.style.top = e.clientY + 'px';
-        });
-
-        const interactiveEls = document.querySelectorAll('a, button, .group, iframe');
-        interactiveEls.forEach(el => {
-            el.addEventListener('mouseenter', () => body.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'));
-        });
-    }
 });
